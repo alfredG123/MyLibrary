@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Search.css">
+
+    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/Constant.js"></script>
+    <script type="text/javascript" src="js/data/TagList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeList.js"></script>
+    <script type="text/javascript" src="js/data/MangaList.js"></script>
+    <script type="text/javascript" src="js/data/VideoList.js"></script>
+    <script type="text/javascript" src="js/SearchFunctions.js"></script>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tab-link" onclick="SelectTab(this, 3);">Video</button>
+        <button class="tab-link" onclick="SelectTab(this, 1);">Anime</button>
+        <button class="tab-link" onclick="SelectTab(this, 2);">Manga</button>
+    </div>
+
+    <div id="video_tab" class="tab-content">
+        <table id="video_table">
+        </table>
+
+        <label id="no_video_label">There are not video.</label>
+    </div>
+
+    <div id="anime_tab" class="tab-content">
+        <table id="anime_table">
+        </table>
+
+        <label id="no_anime_label">There are not anime.</label>
+    </div>
+
+    <div id="manga_tab" class="tab-content">
+        <table id="manga_table">
+        </table>
+
+        <label id="no_manga_label">There are not manga.</label>
+    </div>
+</body>
+
+</html>
