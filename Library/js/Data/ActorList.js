@@ -1,0 +1,26 @@
+const actor_name1 = 'actor1';
+const actor_name2 = 'actor2';
+const actor_name3 = 'actor3';
+const actor_name4 = 'actor4';
+const actor_name5 = 'actor5';
+const actor_name6 = 'actor6';
+const actor_name7 = 'actor7';
+const actor_name8 = 'actor8';
+const actor_name9 = 'actor9';
+const actor_name10 = 'actor10';
+const actor_name11 = 'actor11';
+const actor_name12 = 'actor12';
+
+const actor_list = [];
+actor_list.push(actor_name1);
+actor_list.push(actor_name2);
+actor_list.push(actor_name3);
+actor_list.push(actor_name4);
+actor_list.push(actor_name5);
+actor_list.push(actor_name6);
+actor_list.push(actor_name7);
+actor_list.push(actor_name8);
+actor_list.push(actor_name9);
+actor_list.push(actor_name10);
+actor_list.push(actor_name11);
+actor_list.push(actor_name12);
