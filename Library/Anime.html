@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/General.css">
+
     <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="js/Constant.js"></script>
     <script type="text/javascript" src="js/data/ActorList.js"></script>
@@ -14,8 +17,16 @@
 </head>
 
 <body>
-    <table id="anime_table">
-    </table>
+    <div id="anime_container" class="d-flex flex-wrap"></div>
+
+    <template id="anime_card_template">
+        <div class="card" style="width: 18rem;">
+            <img anime-image class="card-img-top">
+            <div class="card-body">
+                <p anime-title class="card-text"></p>
+            </div>
+        </div>
+    </template>
 </body>
 
 </html>

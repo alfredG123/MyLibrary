@@ -3,7 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Details.css">
+
     <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="js/Constant.js"></script>
     <script type="text/javascript" src="js/data/ActorList.js"></script>
@@ -16,30 +19,57 @@
 </head>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <img id="detail_image">
-            </td>
-            <td>
-                <label id="detail_title">
-            </td>
-            <td id="detail_code_column">
-                <label id="detail_code">
-            </td>
-            <td id="detail_author_column">
-                <label id="detail_author">
-            </td>
-            <td id="detail_actor_list_column">
-                <ul id="actor_list">
-                </ul>
-            </td>
-            <td>
-                <ul id="tag_list">
-                </ul>
-            </td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class="col-sm-4">
+            <img id="detail_image">
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Title:</label>
+                </div>
+                <div class="col-sm-10">
+                    <label id="detail_title"></label>
+                </div>
+            </div>
+
+            <div id="detail_code_container" class="row">
+                <div class="col-sm-2">
+                    <label>Code:</label>
+                </div>
+                <div class="col-sm-10">
+                    <label id="detail_code"></label>
+                </div>
+            </div>
+
+            <div id="detail_author_container" class="row">
+                <div class="col-sm-2">
+                    <label>Author:</label>
+                </div>
+                <div class="col-sm-10">
+                    <label id="detail_author"></label>
+                </div>
+            </div>
+
+            <div id="detail_actor_list_container" class="row">
+                <div class="col-sm-2">
+                    <label>Actors:</label>
+                </div>
+                <div class="col-sm-10">
+                    <div id="actor_list" class="d-flex flex-wrap"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Tags:</label>
+                </div>
+                <div class="col-sm-10">
+                    <div id="tag_list" class="d-flex flex-wrap"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

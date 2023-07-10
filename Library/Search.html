@@ -3,9 +3,10 @@
 
 <head>
     <meta charset="utf-8" />
-    
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/Search.css">
+    <link rel="stylesheet" href="css/General.css">
 
     <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="js/Constant.js"></script>
@@ -26,25 +27,31 @@
     </div>
 
     <div id="video_tab" class="tab-content">
-        <table id="video_table">
-        </table>
+        <div id="video_container" class="d-flex flex-wrap"></div>
 
         <label id="no_video_label">There are not video.</label>
     </div>
 
     <div id="anime_tab" class="tab-content">
-        <table id="anime_table">
-        </table>
+        <div id="anime_container" class="d-flex flex-wrap"></div>
 
         <label id="no_anime_label">There are not anime.</label>
     </div>
 
     <div id="manga_tab" class="tab-content">
-        <table id="manga_table">
-        </table>
+        <div id="manga_container" class="d-flex flex-wrap"></div>
 
         <label id="no_manga_label">There are not manga.</label>
     </div>
+
+    <template id="item_card_template">
+        <div class="card" style="width: 18rem;">
+            <img item-image class="card-img-top">
+            <div class="card-body">
+                <p item-title class="card-text"></p>
+            </div>
+        </div>
+    </template>
 </body>
 
 </html>

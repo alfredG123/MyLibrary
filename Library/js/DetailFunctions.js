@@ -56,11 +56,11 @@ function GetTitle(page_type, index) {
 }
 
 function SetupAuthor(page_type, index) {
-    let detail_author_column = document.getElementById('detail_author_column');
+    let detail_author_container = document.getElementById('detail_author_container');
 
-    detail_author_column.style.display = 'table-cell';
+    detail_author_container.style.display = 'flex';
     if (page_type != manga_page_type) {
-        detail_author_column.style.display = 'none';
+        detail_author_container.style.display = 'none';
 
         return;
     }
@@ -71,11 +71,11 @@ function SetupAuthor(page_type, index) {
 }
 
 function SetupActors(page_type, index) {
-    let detail_actor_list_column = document.getElementById('detail_actor_list_column');
+    let detail_actor_list_container = document.getElementById('detail_actor_list_container');
 
-    detail_actor_list_column.style.display = 'table-cell';
+    detail_actor_list_container.style.display = 'flex';
     if (page_type != video_page_type) {
-        detail_actor_list_column.style.display = 'none';
+        detail_actor_list_container.style.display = 'none';
 
         return;
     }
@@ -84,18 +84,20 @@ function SetupActors(page_type, index) {
     let actor_list_control = document.getElementById('actor_list');
 
     for (var i = 0; i < actor_list.length; i++) {
-        let list_item = document.createElement('li');
-        list_item.innerText = actor_list[i];
-        actor_list_control.append(list_item);
+        let actor_container = document.createElement('div');
+        actor_container.innerText = actor_list[i];
+        actor_container.classList.add('col-sm-2');
+        actor_container.classList.add('tag-container');
+        actor_list_control.append(actor_container);
     }
 }
 
 function SetupCode(page_type, index) {
-    let detail_code_column = document.getElementById('detail_code_column');
+    let detail_code_container = document.getElementById('detail_code_container');
 
-    detail_code_column.style.display = 'table-cell';
+    detail_code_container.style.display = 'flex';
     if (page_type != video_page_type) {
-        detail_code_column.style.display = 'none';
+        detail_code_container.style.display = 'none';
 
         return;
     }
@@ -120,8 +122,10 @@ function SetupTags(page_type, index) {
     }
 
     for (var i = 0; i < tag_list.length; i++) {
-        let list_item = document.createElement('li');
-        list_item.innerText = tag_list[i];
-        tag_list_control.append(list_item);
+        let tag_container = document.createElement('div');
+        tag_container.innerText = tag_list[i];
+        tag_container.classList.add('col-sm-2');
+        tag_container.classList.add('tag-container');
+        tag_list_control.append(tag_container);
     }
 }

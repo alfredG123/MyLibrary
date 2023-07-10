@@ -1,28 +1,25 @@
 $(document).ready(function () {
+    const manga_card_template = document.getElementById('manga_card_template');
+
     LoadTableData();
 });
 
 function LoadTableData() {
-    let manga_table = document.getElementById('manga_table');
+    let manga_container = document.getElementById('manga_container');
 
     for (var i = 1; i <= manga_list.size; i++) {
         let manga_item = manga_list.get(i);
-        let row = manga_table.insertRow();
-        let image_cell = row.insertCell(0);
-        let title_cell = row.insertCell(1);
-        let button_cell = row.insertCell(2);
+        let manga_card = manga_card_template.content.cloneNode(true).children[0];
 
-        let image = document.createElement('img');
-        image.src = image_folder_path + manga_item.image;
-        image_cell.appendChild(image);
+        let manga_image = manga_card.querySelector('[manga-image]');
+        let manga_title = manga_card.querySelector('[manga-title]');
 
-        title_cell.innerHTML = manga_item.title;
+        manga_image.src = image_folder_path + manga_item.image;
+        manga_title.innerHTML = manga_item.title;
 
-        let view_button = document.createElement('button');
-        view_button.innerText = 'View';
-        view_button.setAttribute('type', 'button');
-        view_button.setAttribute('onclick', 'ViewDetails(' + i + ')');
-        button_cell.appendChild(view_button);
+        manga_image.setAttribute('onclick', 'ViewDetails(' + i + ')');
+
+        manga_container.appendChild(manga_card);
     }
 }
 

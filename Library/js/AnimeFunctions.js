@@ -1,28 +1,25 @@
 $(document).ready(function () {
+    const anime_card_template = document.getElementById('anime_card_template');
+
     LoadTableData();
 });
 
 function LoadTableData() {
-    let anime_table = document.getElementById('anime_table');
+    let anime_container = document.getElementById('anime_container');
 
     for (var i = 1; i <= anime_list.size; i++) {
         let anime_item = anime_list.get(i);
-        let row = anime_table.insertRow();
-        let image_cell = row.insertCell(0);
-        let title_cell = row.insertCell(1);
-        let button_cell = row.insertCell(2);
+        let anime_card = anime_card_template.content.cloneNode(true).children[0];
 
-        let image = document.createElement('img');
-        image.src = image_folder_path + anime_item.image;
-        image_cell.appendChild(image);
+        let anime_image = anime_card.querySelector('[anime-image]');
+        let anime_title = anime_card.querySelector('[anime-title]');
 
-        title_cell.innerHTML = anime_item.title;
+        anime_image.src = image_folder_path + anime_item.image;
+        anime_title.innerHTML = anime_item.title;
 
-        let view_button = document.createElement('button');
-        view_button.innerText = 'View';
-        view_button.setAttribute('type', 'button');
-        view_button.setAttribute('onclick', 'ViewDetails(' + i + ')');
-        button_cell.appendChild(view_button);
+        anime_image.setAttribute('onclick', 'ViewDetails(' + i + ')');
+
+        anime_container.appendChild(anime_card);
     }
 }
 

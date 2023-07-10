@@ -1,17 +1,24 @@
 $(document).ready(function () {
+    const item_card_template = document.getElementById('item_card_template');
+
     var no_anime_label = document.getElementById('no_anime_label');
     var no_manga_label = document.getElementById('no_manga_label');
     var no_video_label = document.getElementById('no_video_label');
-    var anime_table = document.getElementById('anime_table');
-    var manga_table = document.getElementById('manga_table');
-    var video_table = document.getElementById('video_table');
+    var anime_container = document.getElementById('anime_container');
+    var manga_container = document.getElementById('manga_container');
+    var video_container = document.getElementById('video_container');
 
-    InitializeTabs();
+    no_anime_label.style.display = 'none';
+    no_manga_label.style.display = 'none';
+    no_video_label.style.display = 'none';
+    anime_container.style.display = 'none';
+    manga_container.style.display = 'none';
+    video_container.style.display = 'none';
 
-    LoadTableData();
+    LoadCardData();
 });
 
-function LoadTableData() {
+function LoadCardData() {
     let parameters = new URL(window.location).searchParams;
     let actor_text = parameters.get('Actor');
     let author_text = parameters.get('Author');
@@ -37,37 +44,37 @@ function LoadTableData() {
         search_type = search_by_tag;
     }
 
-    LoadTableDataInTab(search_type, anime_page_type, item_text);
-    LoadTableDataInTab(search_type, manga_page_type, item_text);
-    LoadTableDataInTab(search_type, video_page_type, item_text);
+    LoadCardDataInTab(search_type, anime_page_type, item_text);
+    LoadCardDataInTab(search_type, manga_page_type, item_text);
+    LoadCardDataInTab(search_type, video_page_type, item_text);
 
     let tab_content = document.getElementById('video_tab');
     SelectTab(tab_content, video_page_type);
 }
 
-function LoadTableDataInTab(search_type, page_type, item_text) {
-    let item_table = null;
+function LoadCardDataInTab(search_type, page_type, item_text) {
+    let item_container = null;
     let item_list = null;
 
     if (page_type == anime_page_type) {
-        item_table = document.getElementById('anime_table');
+        item_container = anime_container;
         item_list = anime_list;
     }
     else if (page_type == manga_page_type) {
-        item_table = document.getElementById('manga_table');
+        item_container = manga_container;
         item_list = manga_list;
     }
     else if (page_type == video_page_type) {
-        item_table = document.getElementById('video_table');
+        item_container = video_container;
         item_list = video_list;
     }
 
-    if (item_table != null) {
-        LoadTableDataInTable(search_type, item_table, page_type, item_list, item_text);
+    if (item_container != null) {
+        LoadCardDataInContainer(search_type, item_container, page_type, item_list, item_text);
     }
 }
 
-function LoadTableDataInTable(search_type, item_table, page_type, item_list, item_text) {
+function LoadCardDataInContainer(search_type, item_container, page_type, item_list, item_text) {
     let item_key_list = [];
 
     if (search_type == search_by_actor) {
@@ -89,12 +96,15 @@ function LoadTableDataInTable(search_type, item_table, page_type, item_list, ite
 
     if (item_key_list.length == 0) {
         if (page_type == anime_page_type) {
+            console.log(1);
             no_anime_label.style.display = 'block';
         }
         else if (page_type == manga_page_type) {
+            console.log(2);
             no_manga_label.style.display = 'block';
         }
         else if (page_type == video_page_type) {
+            console.log(3);
             no_video_label.style.display = 'block';
         }
 
@@ -102,34 +112,28 @@ function LoadTableDataInTable(search_type, item_table, page_type, item_list, ite
     }
 
     if (page_type == anime_page_type) {
-        anime_table.style.display = 'block';
+        anime_container.style.display = 'block';
     }
     else if (page_type == manga_page_type) {
-        manga_table.style.display = 'block';
+        manga_container.style.display = 'block';
     }
     else if (page_type == video_page_type) {
-        video_table.style.display = 'block';
+        video_container.style.display = 'block';
     }
 
     for (var i = 0; i < item_key_list.length; i++) {
-        let row = item_table.insertRow();
-        let image_cell = row.insertCell(0);
-        let title_cell = row.insertCell(1);
-        let button_cell = row.insertCell(2);
         let item_index = item_key_list[i];
         let list_item = item_list.get(item_index);
+        let item_card = item_card_template.content.cloneNode(true).children[0];
+        let item_image = item_card.querySelector('[item-image]');
+        let item_title = item_card.querySelector('[item-title]');
 
-        let image = document.createElement('img');
-        image.src = image_folder_path + list_item.image;
-        image_cell.appendChild(image);
+        item_image.src = image_folder_path + list_item.image;
+        item_title.innerHTML = list_item.title;
 
-        title_cell.innerHTML = list_item.title;
+        item_image.setAttribute('onclick', 'ViewDetails(' + page_type + ',' + item_index + ')');
 
-        let view_button = document.createElement('button');
-        view_button.innerText = 'View';
-        view_button.setAttribute('type', 'button');
-        view_button.setAttribute('onclick', 'ViewDetails(' + page_type + ',' + item_index + ')');
-        button_cell.appendChild(view_button);
+        item_container.appendChild(item_card);
     }
 }
 
@@ -227,20 +231,4 @@ function SelectTab(tab_control, page_type) {
     }
 
     tab_control.classList.add('active');
-}
-
-function InitializeTabs() {
-    let no_anime_label = document.getElementById('no_anime_label');
-    let no_manga_label = document.getElementById('no_manga_label');
-    let no_video_label = document.getElementById('no_video_label');
-    let anime_table = document.getElementById('anime_table');
-    let manga_table = document.getElementById('manga_table');
-    let video_table = document.getElementById('video_table');
-
-    no_anime_label.style.display = 'none';
-    no_manga_label.style.display = 'none';
-    no_video_label.style.display = 'none';
-    anime_table.style.display = 'none';
-    manga_table.style.display = 'none';
-    video_table.style.display = 'none';
 }

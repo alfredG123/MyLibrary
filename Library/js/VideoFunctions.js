@@ -1,28 +1,25 @@
 $(document).ready(function () {
+    const video_card_template = document.getElementById('video_card_template');
+
     LoadTableData();
 });
 
 function LoadTableData() {
-    let video_table = document.getElementById('video_table');
+    let video_container = document.getElementById('video_container');
 
     for (var i = 1; i <= video_list.size; i++) {
         let video_item = video_list.get(i);
-        let row = video_table.insertRow();
-        let image_cell = row.insertCell(0);
-        let title_cell = row.insertCell(1);
-        let button_cell = row.insertCell(2);
+        let video_card = video_card_template.content.cloneNode(true).children[0];
 
-        let image = document.createElement('img');
-        image.src = image_folder_path + video_item.image;
-        image_cell.appendChild(image);
+        let video_image = video_card.querySelector('[video-image]');
+        let video_title = video_card.querySelector('[video-title]');
 
-        title_cell.innerHTML = video_item.title;
+        video_image.src = image_folder_path + video_item.image;
+        video_title.innerHTML = video_item.title;
 
-        let view_button = document.createElement('button');
-        view_button.innerText = 'View';
-        view_button.setAttribute('type', 'button');
-        view_button.setAttribute('onclick', 'ViewDetails(' + i + ')');
-        button_cell.appendChild(view_button);
+        video_image.setAttribute('onclick', 'ViewDetails(' + i + ')');
+
+        video_container.appendChild(video_card);
     }
 }
 
