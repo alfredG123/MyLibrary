@@ -7,6 +7,7 @@ const video_title6 = 'video title 6';
 
 const video1 = {
     'title': video_title1,
+    'code': '111',
     'image': '4hmr2i7yijkl6b2gyusa4s5jfwktzbg.png',
     'actors': [actor_name1],
     'tags': [tag_text1, tag_text2],
@@ -14,6 +15,7 @@ const video1 = {
 
 const video2 = {
     'title': video_title2,
+    'code': '111',
     'image': 'bmxvf8djut3co3zc2anmiztxqkrtwtd.png',
     'actors': [actor_name2, actor_name3],
     'tags': [tag_text1, tag_text2, tag_text3],
@@ -21,6 +23,7 @@ const video2 = {
 
 const video3 = {
     'title': video_title3,
+    'code': '111',
     'image': 'cb9az129h0s9yrzjawsng05ivkswl6k.png',
     'actors': [actor_name1],
     'tags': [tag_text5, tag_text6],
@@ -28,6 +31,7 @@ const video3 = {
 
 const video4 = {
     'title': video_title4,
+    'code': '111',
     'image': 'h8guwfomjccchkolh1f9imbalkkpon8.png',
     'actors': [actor_name4],
     'tags': [],
@@ -35,6 +39,7 @@ const video4 = {
 
 const video5 = {
     'title': video_title5,
+    'code': '111',
     'image': 'rz9oh45ztuok9j3p5qsiufyavo6b7ki.png',
     'actors': [actor_name1, actor_name2, actor_name3],
     'tags': [tag_text7],
@@ -42,6 +47,7 @@ const video5 = {
 
 const video6 = {
     'title': video_title6,
+    'code': '111',
     'image': 'svbsb24r4gn98gxlltz5f7o3o8rdq82.png',
     'actors': [actor_name1],
     'tags': [tag_text2, tag_text5],

@@ -15,6 +15,7 @@ function LoadDetails() {
 
     SetupAuthor(page_type, index);
     SetupActors(page_type, index);
+    SetupCode(page_type, index);
     SetupTags(page_type, index);
 }
 
@@ -87,6 +88,21 @@ function SetupActors(page_type, index) {
         list_item.innerText = actor_list[i];
         actor_list_control.append(list_item);
     }
+}
+
+function SetupCode(page_type, index) {
+    let detail_code_column = document.getElementById('detail_code_column');
+
+    detail_code_column.style.display = 'table-cell';
+    if (page_type != video_page_type) {
+        detail_code_column.style.display = 'none';
+
+        return;
+    }
+
+    let code = video_list.get(index).code;
+    let code_label = document.getElementById('detail_code');
+    code_label.innerText = code;
 }
 
 function SetupTags(page_type, index) {
