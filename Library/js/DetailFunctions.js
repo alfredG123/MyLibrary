@@ -66,8 +66,9 @@ function SetupAuthor(page_type, index) {
     }
 
     let author_name = manga_list.get(index).author;
-    let author_label = document.getElementById('detail_author');
-    author_label.innerText = author_name;
+    let author_button = document.getElementById('detail_author');
+    author_button.innerText = author_name;
+    author_button.setAttribute('onclick', 'FindItemsByAuthor("' + author_name + '");');
 }
 
 function SetupActors(page_type, index) {
@@ -84,11 +85,12 @@ function SetupActors(page_type, index) {
     let actor_list_control = document.getElementById('actor_list');
 
     for (var i = 0; i < actor_list.length; i++) {
-        let actor_container = document.createElement('div');
-        actor_container.innerText = actor_list[i];
-        actor_container.classList.add('col-sm-2');
-        actor_container.classList.add('tag-container');
-        actor_list_control.append(actor_container);
+        let actor_button = document.createElement('div');
+        actor_button.innerText = actor_list[i];
+        actor_button.classList.add('col-sm-2');
+        actor_button.classList.add('tag-container');
+        actor_button.setAttribute('onclick', 'FindItemsByActor("' + actor_list[i] + '");');
+        actor_list_control.append(actor_button);
     }
 }
 
@@ -122,10 +124,29 @@ function SetupTags(page_type, index) {
     }
 
     for (var i = 0; i < tag_list.length; i++) {
-        let tag_container = document.createElement('div');
-        tag_container.innerText = tag_list[i];
-        tag_container.classList.add('col-sm-2');
-        tag_container.classList.add('tag-container');
-        tag_list_control.append(tag_container);
+        let tag_button = document.createElement('div');
+        tag_button.innerText = tag_list[i];
+        tag_button.classList.add('col-sm-2');
+        tag_button.classList.add('tag-container');
+        tag_button.setAttribute('onclick', 'FindItemsByTag("' + tag_list[i] + '");');
+        tag_list_control.append(tag_button);
     }
+}
+
+function FindItemsByActor(actor_name) {
+    let search_href = 'Search.html?Actor=' + actor_name;
+
+    window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
+}
+
+function FindItemsByAuthor(author_name) {
+    let search_href = 'Search.html?Author=' + author_name;
+
+    window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
+}
+
+function FindItemsByTag(tag_text) {
+    let search_href = 'Search.html?Tag=' + tag_text;
+
+    window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
 }

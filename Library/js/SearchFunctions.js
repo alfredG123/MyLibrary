@@ -96,15 +96,12 @@ function LoadCardDataInContainer(search_type, item_container, page_type, item_li
 
     if (item_key_list.length == 0) {
         if (page_type == anime_page_type) {
-            console.log(1);
             no_anime_label.style.display = 'block';
         }
         else if (page_type == manga_page_type) {
-            console.log(2);
             no_manga_label.style.display = 'block';
         }
         else if (page_type == video_page_type) {
-            console.log(3);
             no_video_label.style.display = 'block';
         }
 
