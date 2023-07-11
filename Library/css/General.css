@@ -5,3 +5,11 @@
 .field-container {
     margin-top: 10px;
 }
+
+.pagination-container {
+    margin-top: 10px;
+}
+
+.pagination {
+    justify-content: center;
+}
