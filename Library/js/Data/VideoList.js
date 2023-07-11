@@ -11,6 +11,7 @@ const video1 = {
     'image': '4hmr2i7yijkl6b2gyusa4s5jfwktzbg.png',
     'actors': [actor_name1],
     'tags': [tag_text1, tag_text2],
+    'links': ['link1', 'link2'],
 };
 
 const video2 = {
@@ -19,6 +20,7 @@ const video2 = {
     'image': 'bmxvf8djut3co3zc2anmiztxqkrtwtd.png',
     'actors': [actor_name2, actor_name3],
     'tags': [tag_text1, tag_text2, tag_text3],
+    'links': ['link1', 'link2'],
 };
 
 const video3 = {
@@ -27,6 +29,7 @@ const video3 = {
     'image': 'cb9az129h0s9yrzjawsng05ivkswl6k.png',
     'actors': [actor_name1],
     'tags': [tag_text5, tag_text6],
+    'links': [],
 };
 
 const video4 = {
@@ -35,6 +38,7 @@ const video4 = {
     'image': 'h8guwfomjccchkolh1f9imbalkkpon8.png',
     'actors': [actor_name4],
     'tags': [],
+    'links': [],
 };
 
 const video5 = {
@@ -43,6 +47,7 @@ const video5 = {
     'image': 'rz9oh45ztuok9j3p5qsiufyavo6b7ki.png',
     'actors': [actor_name1, actor_name2, actor_name3],
     'tags': [tag_text7],
+    'links': [],
 };
 
 const video6 = {
@@ -51,6 +56,7 @@ const video6 = {
     'image': 'svbsb24r4gn98gxlltz5f7o3o8rdq82.png',
     'actors': [actor_name1],
     'tags': [tag_text2, tag_text5],
+    'links': [],
 };
 
 const video_list = new Map();

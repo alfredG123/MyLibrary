@@ -17,6 +17,12 @@
 }
 
 .detail_text {
-    text-align: center;
     margin: 10px;
+}
+
+.link-container {
+    border-style: ridge;
+    cursor: pointer;
+    margin: 10px;
+    padding-left: 10px;
 }

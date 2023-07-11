@@ -17,6 +17,7 @@ function LoadDetails() {
     SetupActors(page_type, index);
     SetupCode(page_type, index);
     SetupTags(page_type, index);
+    SetupLinks(page_type, index);
 }
 
 function GetImagePath(page_type, index) {
@@ -133,6 +134,29 @@ function SetupTags(page_type, index) {
     }
 }
 
+function SetupLinks(page_type, index) {
+    let link_list;
+    let link_list_control = document.getElementById('link_list');
+
+    if (page_type == anime_page_type) {
+        link_list = anime_list.get(index).links;
+    }
+    else if (page_type == manga_page_type) {
+        link_list = manga_list.get(index).links;
+    }
+    else if (page_type == video_page_type) {
+        link_list = video_list.get(index).links;
+    }
+
+    for (var i = 0; i < link_list.length; i++) {
+        let link_button = document.createElement('div');
+        link_button.innerText = link_list[i];
+        link_button.classList.add('link-container');
+        link_button.setAttribute('onclick', 'CopyLinkToClipboard("' + link_list[i] + '");');
+        link_list_control.append(link_button);
+    }
+}
+
 function FindItemsByActor(actor_name) {
     let search_href = 'Search.html?Actor=' + actor_name;
 
@@ -149,4 +173,10 @@ function FindItemsByTag(tag_text) {
     let search_href = 'Search.html?Tag=' + tag_text;
 
     window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
+}
+
+function CopyLinkToClipboard(link_text) {
+    navigator.clipboard.writeText(link_text);
+
+    alert('The link is copied to the clipboard!');
 }
