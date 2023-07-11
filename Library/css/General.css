@@ -13,3 +13,9 @@
 .pagination {
     justify-content: center;
 }
+
+.data-list-container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}

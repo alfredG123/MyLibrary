@@ -1,3 +1,5 @@
+const item_number_per_page = 100;
+
 var current_page_number = 1;
 
 $(document).ready(function () {
@@ -12,7 +14,6 @@ $(document).ready(function () {
 });
 
 function LoadPaging() {
-    let item_number_per_page = 2;
     let total_page_number = Math.ceil(video_list.size / item_number_per_page);
 
     for (var i = 1; i <= total_page_number; i++) {
@@ -31,17 +32,20 @@ function LoadPageData(page_number) {
     const disabled_class = 'disabled';
 
     let video_container = document.getElementById('video_container');
-    let item_number_per_page = 2;
     let total_page_number = Math.ceil(video_list.size / item_number_per_page);
     let start_index = (page_number - 1) * item_number_per_page;
     let end_index = page_number * item_number_per_page;
+
+    if (end_index > video_list.size) {
+        end_index = video_list.size;
+    }
 
     previous_button.classList.remove(disabled_class);
     next_button.classList.remove(disabled_class);
     if (page_number == 1) {
         previous_button.classList.add(disabled_class);
     }
-    else if (page_number == total_page_number) {
+    if (page_number == total_page_number) {
         next_button.classList.add(disabled_class);
     }
 
