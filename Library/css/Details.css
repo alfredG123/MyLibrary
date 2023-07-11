@@ -4,3 +4,19 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.preview_image {
+    width: -webkit-fill-available;
+    max-width: 300px;
+}
+
+.detail_info_container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.detail_text {
+    text-align: center;
+    margin: 10px;
+}

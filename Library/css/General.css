@@ -3,13 +3,6 @@
 }
 
 .field-container {
-    margin: auto 0;
-}
-
-.field-label {
-    float: right;
-}
-
-.field-control {
-    float: left;
+    margin-top: auto;
+    margin-bottom: auto;
 }
