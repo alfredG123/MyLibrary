@@ -1,12 +1,5 @@
-const video_title1 = 'video title 1';
-const video_title2 = 'video title 2';
-const video_title3 = 'video title 3';
-const video_title4 = 'video title 4';
-const video_title5 = 'video title 5';
-const video_title6 = 'video title 6';
-
 const video1 = {
-    'title': video_title1,
+    'title': 'video title 1',
     'code': '111',
     'image': '4hmr2i7yijkl6b2gyusa4s5jfwktzbg.png',
     'actors': [actor_name1],
@@ -15,7 +8,7 @@ const video1 = {
 };
 
 const video2 = {
-    'title': video_title2,
+    'title': 'video title 2',
     'code': '111',
     'image': 'bmxvf8djut3co3zc2anmiztxqkrtwtd.png',
     'actors': [actor_name2, actor_name3],
@@ -24,7 +17,7 @@ const video2 = {
 };
 
 const video3 = {
-    'title': video_title3,
+    'title': 'video title 3',
     'code': '111',
     'image': 'cb9az129h0s9yrzjawsng05ivkswl6k.png',
     'actors': [actor_name1],
@@ -33,7 +26,7 @@ const video3 = {
 };
 
 const video4 = {
-    'title': video_title4,
+    'title': 'video title 4',
     'code': '111',
     'image': 'h8guwfomjccchkolh1f9imbalkkpon8.png',
     'actors': [actor_name4],
@@ -42,7 +35,7 @@ const video4 = {
 };
 
 const video5 = {
-    'title': video_title5,
+    'title': 'video title 5',
     'code': '111',
     'image': 'rz9oh45ztuok9j3p5qsiufyavo6b7ki.png',
     'actors': [actor_name1, actor_name2, actor_name3],
@@ -51,7 +44,7 @@ const video5 = {
 };
 
 const video6 = {
-    'title': video_title6,
+    'title': 'video title 6',
     'code': '111',
     'image': 'svbsb24r4gn98gxlltz5f7o3o8rdq82.png',
     'actors': [actor_name1],
