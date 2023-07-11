@@ -53,14 +53,6 @@ const video6 = {
     'tags': [tag_text2, tag_text5],
 };
 
-const video_key_list = new Map();
-video_key_list.set(video_title1, 1);
-video_key_list.set(video_title2, 2);
-video_key_list.set(video_title3, 3);
-video_key_list.set(video_title4, 4);
-video_key_list.set(video_title5, 5);
-video_key_list.set(video_title6, 6);
-
 const video_list = new Map();
 video_list.set(1, video1);
 video_list.set(2, video2);

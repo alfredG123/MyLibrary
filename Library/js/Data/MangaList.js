@@ -31,13 +31,6 @@ const manage4 = {
     'tags': [tag_text2],
 };
 
-
-const manga_key_list = new Map();
-manga_key_list.set(manga_title1, 1);
-manga_key_list.set(manga_title2, 2);
-manga_key_list.set(manga_title3, 3);
-manga_key_list.set(manga_title4, 4);
-
 const manga_list = new Map();
 manga_list.set(1, manage1);
 manga_list.set(2, manage2);

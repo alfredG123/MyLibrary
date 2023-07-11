@@ -27,12 +27,6 @@ const anime4 = {
     'tags': [tag_text1],
 };
 
-const anime_key_list = new Map();
-anime_key_list.set(anime_title1, 1);
-anime_key_list.set(anime_title2, 2);
-anime_key_list.set(anime_title3, 3);
-anime_key_list.set(anime_title4, 4);
-
 const anime_list = new Map();
 anime_list.set(1, anime1);
 anime_list.set(2, anime2);
