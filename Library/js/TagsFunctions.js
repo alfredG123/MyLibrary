@@ -1,65 +1,88 @@
 $(document).ready(function () {
-    LoadAuthors();
-    LoadActors();
     LoadTags();
 });
 
-function LoadAuthors() {
-    let authors_container = document.getElementById('authors_container');
-
-    for (var i = 0; i < author_list.length; i++) {
-        let author_button = document.createElement('div');
-        author_button.innerText = author_list[i];
-        author_button.classList.add('col-sm-2');
-        author_button.classList.add('tag-container');
-        author_button.setAttribute('onclick', 'FindItemsByAuthor(' + i + ');');
-        authors_container.append(author_button);
-    }
-}
-
-function LoadActors() {
-    let actors_container = document.getElementById('actors_container');
-
-    for (var i = 0; i < actor_list.length; i++) {
-        let actor_button = document.createElement('div');
-        actor_button.innerText = actor_list[i];
-        actor_button.classList.add('col-sm-2');
-        actor_button.classList.add('tag-container');
-        actor_button.setAttribute('onclick', 'FindItemsByActor(' + i + ');');
-        actors_container.append(actor_button);
-    }
-}
-
+// Load tags on the page
 function LoadTags() {
-    let tags_container = document.getElementById('tags_container');
+    LoadTagsByType(search_by_actor);
+    LoadTagsByType(search_by_anime_company);
+    LoadTagsByType(search_by_anime_serie);
+    LoadTagsByType(search_by_author);
+    LoadTagsByType(search_by_manga_serie);
+    LoadTagsByType(search_by_tag);
+    LoadTagsByType(search_by_video_company);
+    LoadTagsByType(search_by_video_serie);
+}
 
-    for (var i = 0; i < tag_list.length; i++) {
-        let tag_button = document.createElement('div');
-        tag_button.innerText = tag_list[i];
-        tag_button.classList.add('col-sm-2');
-        tag_button.classList.add('tag-container');
-        tag_button.setAttribute('onclick', 'FindItemsByTag(' + i + ');');
-        tags_container.append(tag_button);
+// Load tags on the page by the search type
+function LoadTagsByType(search_type) {
+    var item_list = null;
+    var item_container = null;
+
+    // Find the corresponding lists and container controls
+    switch (search_type) {
+        case search_by_actor:
+            item_list = actor_list;
+            item_container = document.getElementById('video_actors_container');
+            break;
+        case search_by_anime_company:
+            item_list = anime_company_list;
+            item_container = document.getElementById('anime_companies_container');
+            break;
+        case search_by_anime_serie:
+            item_list = anime_serie_list;
+            item_container = document.getElementById('anime_series_container');
+            break;
+        case search_by_author:
+            item_list = author_list;
+            item_container = document.getElementById('manga_authors_container');
+            break;
+        case search_by_manga_serie:
+            item_list = manga_serie_list;
+            item_container = document.getElementById('manga_series_container');
+            break;
+        case search_by_tag:
+            item_list = tag_list;
+            item_container = document.getElementById('tags_container');
+            break;
+        case search_by_video_company:
+            item_list = video_company_list;
+            item_container = document.getElementById('video_companies_container');
+            break;
+        case search_by_video_serie:
+            item_list = video_serie_list;
+            item_container = document.getElementById('video_series_container');
+            break;
+    }
+
+    // Load tags on the page
+    if (item_list != null && item_container != null) {
+        LoadTagsWithList(search_type, item_list, item_container);
     }
 }
 
-function FindItemsByActor(actor_index) {
-    let actor_text = actor_list[actor_index];
-    let search_href = 'Search.html?Actor=' + actor_text;
+// Load tags on the page by the search type
+function LoadTagsWithList(search_type, item_list, item_container) {
 
-    window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
+    // Create a tag for each item
+    for (var i = 0; i < item_list.length; i++) {
+        let item_text = item_list[i];
+
+        // Create a button for the tag
+        let tag_control = document.createElement('div');
+        tag_control.innerText = item_text;
+        tag_control.classList.add('col-sm-2');
+        tag_control.classList.add('tag-container');
+        tag_control.setAttribute('onclick', 'FindItemsForTag(' + search_type + ',"' + item_text + '");');
+
+        // Add the tag control to the container
+        item_container.append(tag_control);
+    }
 }
 
-function FindItemsByAuthor(author_index) {
-    let author_text = author_list[author_index];
-    let search_href = 'Search.html?Author=' + author_text;
-
-    window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
-}
-
-function FindItemsByTag(tag_index) {
-    let tag_text = tag_list[tag_index];
-    let search_href = 'Search.html?Tag=' + tag_text;
+// Raise an event to display search results
+function FindItemsForTag(search_type, item_text) {
+    let search_href = 'Search.html?SearchType=' + search_type + '&ItemText=' + item_text + '';
 
     window.top.postMessage({ 'function': 'ChangePage', 'parameters': search_href }, '*');
 }

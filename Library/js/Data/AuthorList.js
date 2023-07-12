@@ -1,15 +1,15 @@
-const author_name1 = 'author1';
-const author_name2 = 'author2';
-const author_name3 = 'author3';
-const author_name4 = 'author4';
-const author_name5 = 'author5';
-const author_name6 = 'author6';
-const author_name7 = 'author7';
-const author_name8 = 'author8';
-const author_name9 = 'author9';
-const author_name10 = 'author10';
-const author_name11 = 'author11';
-const author_name12 = 'author12';
+const author_name1 = 'author 1';
+const author_name2 = 'author 2';
+const author_name3 = 'author 3';
+const author_name4 = 'author 4';
+const author_name5 = 'author 5';
+const author_name6 = 'author 6';
+const author_name7 = 'author 7';
+const author_name8 = 'author 8';
+const author_name9 = 'author 9';
+const author_name10 = 'author 10';
+const author_name11 = 'author 11';
+const author_name12 = 'author 12';
 
 const author_list = [];
 author_list.push(author_name1);

@@ -13,17 +13,22 @@
     <script type="text/javascript" src="js/data/ActorList.js"></script>
     <script type="text/javascript" src="js/data/AuthorList.js"></script>
     <script type="text/javascript" src="js/data/TagList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeCompanyList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeSerieList.js"></script>
     <script type="text/javascript" src="js/data/AnimeList.js"></script>
+    <script type="text/javascript" src="js/data/MangaSerieList.js"></script>
     <script type="text/javascript" src="js/data/MangaList.js"></script>
+    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
+    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
     <script type="text/javascript" src="js/data/VideoList.js"></script>
     <script type="text/javascript" src="js/SearchFunctions.js"></script>
 </head>
 
 <body>
     <div class="tab">
-        <button class="tab-link" onclick="SelectTab(this, 3);">Video</button>
-        <button class="tab-link" onclick="SelectTab(this, 1);">Anime</button>
-        <button class="tab-link" onclick="SelectTab(this, 2);">Manga</button>
+        <button id="video_tab_link" class="tab-link" onclick="SelectTab(video_tab_index);">Video</button>
+        <button id="anime_tab_link" class="tab-link" onclick="SelectTab(anime_tab_index);">Anime</button>
+        <button id="manga_tab_link" class="tab-link" onclick="SelectTab(manga_tab_index);">Manga</button>
     </div>
 
     <div id="video_tab" class="tab-content">

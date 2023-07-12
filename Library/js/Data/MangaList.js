@@ -1,5 +1,7 @@
 const manage1 = {
     'title': 'manga title 1',
+    'otherTitles': ['oth'],
+    'serie': manga_series5,
     'image': '37k6tkwpg0j4rp4wno3djauxmi5tcsg.png',
     'author': author_name1,
     'tags': [tag_text1, tag_text2, tag_text3],
@@ -8,6 +10,8 @@ const manage1 = {
 
 const manage2 = {
     'title': 'manga title 2',
+    'otherTitles': [],
+    'serie': '',
     'image': 'ldknqut1fuw7tyj97yvslh0iv6kmpes.png',
     'author': author_name2,
     'tags': [tag_text4],
@@ -16,6 +20,8 @@ const manage2 = {
 
 const manage3 = {
     'title': 'manga title 3',
+    'otherTitles': [],
+    'serie': '',
     'image': 'c1fedhtwjklbgoyi08sov1oe6falbet.png',
     'author': author_name3,
     'tags': [tag_text6, tag_text7],
@@ -24,6 +30,8 @@ const manage3 = {
 
 const manage4 = {
     'title': 'manga title 4',
+    'otherTitles': [],
+    'serie': '',
     'image': 'pi0ql8kvw1k3aicyqs6trby8vmbuf5p.png',
     'author': author_name4,
     'tags': [tag_text2],

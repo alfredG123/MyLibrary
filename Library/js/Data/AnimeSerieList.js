@@ -1,0 +1,26 @@
+const anime_series1 = 'anime series 1';
+const anime_series2 = 'anime series 2';
+const anime_series3 = 'anime series 3';
+const anime_series4 = 'anime series 4';
+const anime_series5 = 'anime series 5';
+const anime_series6 = 'anime series 6';
+const anime_series7 = 'anime series 7';
+const anime_series8 = 'anime series 8';
+const anime_series9 = 'anime series 9';
+const anime_series10 = 'anime series 10';
+const anime_series11 = 'anime series 11';
+const anime_series12 = 'anime series 12';
+
+const anime_serie_list = [];
+anime_serie_list.push(anime_series1);
+anime_serie_list.push(anime_series2);
+anime_serie_list.push(anime_series3);
+anime_serie_list.push(anime_series4);
+anime_serie_list.push(anime_series5);
+anime_serie_list.push(anime_series6);
+anime_serie_list.push(anime_series7);
+anime_serie_list.push(anime_series8);
+anime_serie_list.push(anime_series9);
+anime_serie_list.push(anime_series10);
+anime_serie_list.push(anime_series11);
+anime_serie_list.push(anime_series12);

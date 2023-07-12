@@ -80,7 +80,7 @@ function LoadPageData(page_number) {
 }
 
 function ViewDetails(index) {
-    let detail_href = 'Details.html?Type=' + anime_page_type + '&Index=' + index;
+    let detail_href = 'Details.html?DataType=' + anime_data_type + '&ItemIndex=' + index;
 
     window.top.postMessage({ 'function': 'ChangePage', 'parameters': detail_href }, '*');
 }

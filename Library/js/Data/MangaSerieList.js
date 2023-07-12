@@ -1,0 +1,26 @@
+const manga_series1 = 'manga series 1';
+const manga_series2 = 'manga series 2';
+const manga_series3 = 'manga series 3';
+const manga_series4 = 'manga series 4';
+const manga_series5 = 'manga series 5';
+const manga_series6 = 'manga series 6';
+const manga_series7 = 'manga series 7';
+const manga_series8 = 'manga series 8';
+const manga_series9 = 'manga series 9';
+const manga_series10 = 'manga series 10';
+const manga_series11 = 'manga series 11';
+const manga_series12 = 'manga series 12';
+
+const manga_serie_list = [];
+manga_serie_list.push(manga_series1);
+manga_serie_list.push(manga_series2);
+manga_serie_list.push(manga_series3);
+manga_serie_list.push(manga_series4);
+manga_serie_list.push(manga_series5);
+manga_serie_list.push(manga_series6);
+manga_serie_list.push(manga_series7);
+manga_serie_list.push(manga_series8);
+manga_serie_list.push(manga_series9);
+manga_serie_list.push(manga_series10);
+manga_serie_list.push(manga_series11);
+manga_serie_list.push(manga_series12);

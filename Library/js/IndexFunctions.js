@@ -67,8 +67,9 @@ function ChangeActiveLink(active_link) {
 function SearchTitle() {
     let search_box = document.getElementById('search_text_textbox');
     let search_text = search_box.value;
+    let search_href = 'Search.html?SearchType=' + search_by_title + '&ItemText=' + search_text + '';
 
     search_box.value = '';
 
-    ChangePage('Search.html?SearchText=' + search_text);
+    ChangePage(search_href);
 }

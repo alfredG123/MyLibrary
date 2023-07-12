@@ -1,13 +1,15 @@
+var active_search_tab_index = none_tab_index;
+
 $(document).ready(function () {
     const item_card_template = document.getElementById('item_card_template');
+    const no_anime_label = document.getElementById('no_anime_label');
+    const no_manga_label = document.getElementById('no_manga_label');
+    const no_video_label = document.getElementById('no_video_label');
+    const anime_container = document.getElementById('anime_container');
+    const manga_container = document.getElementById('manga_container');
+    const video_container = document.getElementById('video_container');
 
-    var no_anime_label = document.getElementById('no_anime_label');
-    var no_manga_label = document.getElementById('no_manga_label');
-    var no_video_label = document.getElementById('no_video_label');
-    var anime_container = document.getElementById('anime_container');
-    var manga_container = document.getElementById('manga_container');
-    var video_container = document.getElementById('video_container');
-
+    // Hide controls by default
     no_anime_label.style.display = 'none';
     no_manga_label.style.display = 'none';
     no_video_label.style.display = 'none';
@@ -15,109 +17,81 @@ $(document).ready(function () {
     manga_container.style.display = 'none';
     video_container.style.display = 'none';
 
-    LoadCardData();
+    LoadSearchResults();
+
+    // Set up the first tab
+    SelectTab(active_search_tab_index);
 });
 
-function LoadCardData() {
-    let parameters = new URL(window.location).searchParams;
-    let actor_text = parameters.get('Actor');
-    let author_text = parameters.get('Author');
-    let search_text = parameters.get('SearchText');
-    let tag_text = parameters.get('Tag');
-    let item_text;
-    let search_type;
+// Find items by the search paramaters
+function LoadSearchResults() {
+    let search_parameters = new URL(window.location).searchParams;
+    let search_type = parseInt(search_parameters.get('SearchType'));
+    let item_text = search_parameters.get('ItemText');
 
-    if (actor_text != null) {
-        item_text = actor_text;
-        search_type = search_by_actor;
-    }
-    else if (author_text != null) {
-        item_text = author_text;
-        search_type = search_by_author;
-    }
-    else if (search_text != null) {
-        item_text = search_text;
-        search_type = search_by_text;
-    }
-    else if (tag_text != null) {
-        item_text = tag_text;
-        search_type = search_by_tag;
-    }
-
-    LoadCardDataInTab(search_type, anime_page_type, item_text);
-    LoadCardDataInTab(search_type, manga_page_type, item_text);
-    LoadCardDataInTab(search_type, video_page_type, item_text);
-
-    let tab_content = document.getElementById('video_tab');
-    SelectTab(tab_content, video_page_type);
+    // Find the items by the search parameters for each data type
+    LoadSearchResultsForTab(search_type, video_data_type, item_text);
+    LoadSearchResultsForTab(search_type, anime_data_type, item_text);
+    LoadSearchResultsForTab(search_type, manga_data_type, item_text);
 }
 
-function LoadCardDataInTab(search_type, page_type, item_text) {
-    let item_container = null;
-    let item_list = null;
+// Find the items by the search parameters for each data type
+function LoadSearchResultsForTab(search_type, data_type, item_text) {
+    var item_container = null;
+    var no_item_label = null;
+    var item_list = null;
 
-    if (page_type == anime_page_type) {
-        item_container = anime_container;
+    // Find the corresponding lists and container controls
+    if (data_type == anime_data_type) {
         item_list = anime_list;
+        item_container = anime_container;
+        no_item_label = no_anime_label;
     }
-    else if (page_type == manga_page_type) {
-        item_container = manga_container;
+    else if (data_type == manga_data_type) {
         item_list = manga_list;
+        item_container = manga_container;
+        no_item_label = no_manga_label;
     }
-    else if (page_type == video_page_type) {
-        item_container = video_container;
+    else if (data_type == video_data_type) {
         item_list = video_list;
+        item_container = video_container;
+        no_item_label = no_video_label;
     }
 
-    if (item_container != null) {
-        LoadCardDataInContainer(search_type, item_container, page_type, item_list, item_text);
+    // Load the search results
+    if (item_list != null && item_container != null && no_item_label != null) {
+        LoadSearchResultsInContainer(search_type, item_container, no_item_label, item_list, data_type, item_text);
     }
 }
 
-function LoadCardDataInContainer(search_type, item_container, page_type, item_list, item_text) {
-    let item_key_list = [];
+// Find the items by the search parameters for each data type
+function LoadSearchResultsInContainer(search_type, item_container, no_item_label, item_list, data_type, item_text) {
+    var item_key_list = SearchItemsByText(search_type, item_list, item_text);
 
-    if (search_type == search_by_actor) {
-        if (page_type == video_page_type) {
-            item_key_list = FindItemsByActorText(item_list, item_text);
-        }
-    }
-    else if (search_type == search_by_author) {
-        if (page_type == manga_page_type) {
-            item_key_list = FindItemsByAuthorText(item_list, item_text);
-        }
-    }
-    else if (search_type == search_by_text) {
-        item_key_list = FindItemsBySeacrhText(item_list, item_text);
-    }
-    else if (search_type == search_by_tag) {
-        item_key_list = FindItemsByTagText(item_list, item_text);
-    }
-
+    // Display the labels for no items
     if (item_key_list.length == 0) {
-        if (page_type == anime_page_type) {
-            no_anime_label.style.display = 'block';
-        }
-        else if (page_type == manga_page_type) {
-            no_manga_label.style.display = 'block';
-        }
-        else if (page_type == video_page_type) {
-            no_video_label.style.display = 'block';
-        }
+        no_item_label.style.display = 'block';
 
         return;
     }
 
-    if (page_type == anime_page_type) {
-        anime_container.style.display = 'block';
-    }
-    else if (page_type == manga_page_type) {
-        manga_container.style.display = 'block';
-    }
-    else if (page_type == video_page_type) {
-        video_container.style.display = 'block';
+    // Set up the active tab
+    if (active_search_tab_index == none_tab_index) {
+        if (data_type == video_data_type) {
+            active_search_tab_index = video_tab_index;
+        }
+        else if (data_type == anime_data_type) {
+            active_search_tab_index = anime_tab_index;
+        }
+        else if (data_type == manga_data_type) {
+            active_search_tab_index = manga_tab_index;
+        }
     }
 
+    // Display the containers for the lists
+    item_container.style.display = 'block';
+
+    // Create a card control for each found item
     for (var i = 0; i < item_key_list.length; i++) {
         let item_index = item_key_list[i];
         let list_item = item_list.get(item_index);
@@ -125,107 +99,146 @@ function LoadCardDataInContainer(search_type, item_container, page_type, item_li
         let item_image = item_card.querySelector('[item-image]');
         let item_title = item_card.querySelector('[item-title]');
 
+        // Set up the image control
         item_image.src = image_folder_path + list_item.image;
+        item_image.setAttribute('onclick', 'ViewDetails(' + data_type + ',' + item_index + ')');
+
+        // Set up the image caption
         item_title.innerHTML = list_item.title;
 
-        item_image.setAttribute('onclick', 'ViewDetails(' + page_type + ',' + item_index + ')');
-
+        // Add the card control to the container
         item_container.appendChild(item_card);
     }
 }
 
-function FindItemsByActorText(item_list, actor_name) {
+// Find items that match requirements
+function SearchItemsByText(search_type, item_list, item_text) {
     let item_key_list = [];
 
-    if (actor_name == null || actor_name == '')
+    // If the search text is not specified, return
+    if (item_text == null || item_text == '')
         return item_key_list;
 
+    // If the items match texts, store it
     for (var [key, value] of item_list.entries()) {
-        if (value.actors.includes(actor_name)) {
+        let item_value = null;
+
+        // Find the value to search
+        switch (search_type) {
+            case search_by_actor:
+                item_value = value.actors;
+                break;
+            case search_by_anime_company:
+            case search_by_video_company:
+                item_value = value.company;
+                break;
+            case search_by_anime_serie:
+            case search_by_manga_serie:
+            case search_by_video_serie:
+                item_value = value.serie;
+                break;
+            case search_by_author:
+                item_value = value.author;
+                break;
+            case search_by_title:
+                item_value = value.title;
+                break;
+            case search_by_tag:
+                item_value = value.tags;
+                break;
+        }
+
+        // End the loop, the item has no attributes
+        if (item_value == null) {
+            break;
+        }
+
+        // If the item has the text that match the search texts
+        if (CheckIfValueMatches(item_value, item_text)) {
             item_key_list.push(key);
+        }
+
+        // For title, search the other titles, if the title does not match
+        else if (search_type == search_by_title) {
+            if (CheckIfValueMatches(value.otherTitles, item_text)) {
+                item_key_list.push(key);
+            }
         }
     }
 
     return item_key_list;
 }
 
-function FindItemsByAuthorText(item_list, author_name) {
-    let item_key_list = [];
+// Check if the value is match the text
+function CheckIfValueMatches(item_value, item_text) {
+    var is_matched = false;
+    var lowercase_item_text = item_text.toLowerCase();
 
-    if (author_name == null || author_name == '')
-        return item_key_list;
-
-    for (var [key, value] of item_list.entries()) {
-        if (value.author.includes(author_name)) {
-            item_key_list.push(key);
+    // Check if the text in the list
+    if (Array.isArray(item_value)) {
+        if (item_value.some(text => text.toLowerCase().indexOf(lowercase_item_text) !== -1)) {
+            is_matched = true;
         }
     }
 
-    return item_key_list;
-}
-
-function FindItemsBySeacrhText(item_list, search_text) {
-    let item_key_list = [];
-
-    if (search_text == null || search_text == '')
-        return item_key_list;
-
-    for (var [key, value] of item_list.entries()) {
-        if (value.title.includes(search_text)) {
-            item_key_list.push(key);
+    // Check if the item text in the text
+    else {
+        if (item_value.indexOf(lowercase_item_text) !== -1) {
+            is_matched = true;
         }
     }
 
-    return item_key_list;
+    return is_matched;
 }
 
-function FindItemsByTagText(item_list, tag_text) {
-    let item_key_list = [];
-
-    if (tag_text == null || tag_text == '')
-        return item_key_list;
-
-    for (var [key, value] of item_list.entries()) {
-        if (value.tags.includes(tag_text)) {
-            item_key_list.push(key);
-        }
-    }
-
-    return item_key_list;
-}
-
-function ViewDetails(page_type, item_index) {
-    let detail_href = 'Details.html?Type=' + page_type + '&Index=' + item_index;
+// Raise an event to display the detail
+function ViewDetails(data_type, item_index) {
+    let detail_href = 'Details.html?DataType=' + data_type + '&ItemIndex=' + item_index;
 
     window.top.postMessage({ 'function': 'ChangePage', 'parameters': detail_href }, '*');
 }
 
-function SelectTab(tab_control, page_type) {
+// Display the tab control
+function SelectTab(selected_tab_index) {
+
+    // If no tab is selected, default to the tab to video
+    if (selected_tab_index == none_tab_index) {
+        selected_tab_index = video_tab_index;
+    }
+
+    // Hide all tabs by default
     let tab_content_list = document.getElementsByClassName('tab-content');
     for (i = 0; i < tab_content_list.length; i++) {
         tab_content_list[i].style.display = 'none';
     }
 
+    // Hide all tabs by default
     let tab_link_list = document.getElementsByClassName('tab-link');
     for (i = 0; i < tab_link_list.length; i++) {
         tab_link_list[i].classList.remove('active');
     }
 
+    // Find the active tab control
     let tab_content = null;
-
-    if (page_type == anime_page_type) {
+    let tab_link = null;
+    if (selected_tab_index == anime_tab_index) {
         tab_content = document.getElementById('anime_tab');
+        tab_link = document.getElementById('anime_tab_link');
     }
-    else if (page_type == manga_page_type) {
+    else if (selected_tab_index == manga_tab_index) {
         tab_content = document.getElementById('manga_tab');
+        tab_link = document.getElementById('manga_tab_link');
     }
-    else if (page_type == video_page_type) {
+    else if (selected_tab_index == video_tab_index) {
         tab_content = document.getElementById('video_tab');
+        tab_link = document.getElementById('video_tab_link');
     }
 
+    // Display the active tab
     if (tab_content != null) {
         tab_content.style.display = 'block';
     }
-
-    tab_control.classList.add('active');
+    if (tab_link != null) {
+        tab_link.classList.add('active');
+    }
 }
