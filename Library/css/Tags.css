@@ -32,3 +32,8 @@
     margin: 10px;
     cursor: pointer;
 }
+
+.tag-container:hover {
+    color: white;
+    background-color: grey;
+}

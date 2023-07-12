@@ -5,6 +5,11 @@
     cursor: pointer;
 }
 
+.tag-container:hover {
+    color: white;
+    background-color: grey;
+}
+
 .preview_image {
     width: -webkit-fill-available;
     max-width: 300px;
@@ -25,6 +30,11 @@
     cursor: pointer;
     margin: 10px;
     padding-left: 10px;
+}
+
+.link-container:hover {
+    color:white;
+    background-color: grey;
 }
 
 .other-title-text {
