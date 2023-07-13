@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Search.css">
+    <link rel="stylesheet" href="css/General.css">
+
+    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/Constant.js"></script>
+    <script type="text/javascript" src="js/data/ActorList.js"></script>
+    <script type="text/javascript" src="js/data/AuthorList.js"></script>
+    <script type="text/javascript" src="js/data/TagList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeCompanyList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeSerieList.js"></script>
+    <script type="text/javascript" src="js/data/AnimeList.js"></script>
+    <script type="text/javascript" src="js/data/MangaSerieList.js"></script>
+    <script type="text/javascript" src="js/data/MangaList.js"></script>
+    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
+    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
+    <script type="text/javascript" src="js/data/VideoList.js"></script>
+    <script type="text/javascript" src="js/SearchFunctions.js"></script>
+</head>
+
+<body>
+    <div class="tab">
+        <button id="video_tab_link" class="tab-link" onclick="SelectTab(video_tab_index);">Video</button>
+        <button id="anime_tab_link" class="tab-link" onclick="SelectTab(anime_tab_index);">Anime</button>
+        <button id="manga_tab_link" class="tab-link" onclick="SelectTab(manga_tab_index);">Manga</button>
+    </div>
+
+    <div id="video_tab" class="tab-content">
+        <div id="video_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+
+        <label id="no_video_label">There are not video.</label>
+    </div>
+
+    <div id="anime_tab" class="tab-content">
+        <div id="anime_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+
+        <label id="no_anime_label">There are not anime.</label>
+    </div>
+
+    <div id="manga_tab" class="tab-content">
+        <div id="manga_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+
+        <label id="no_manga_label">There are not manga.</label>
+    </div>
+
+    <template id="item_card_template">
+        <div class="card">
+            <img item-image class="card-img-top">
+            <div class="card-body">
+                <p item-title class="card-text"></p>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+.main-container {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.main-container:first-child {
+    margin-top: 0px;
+}
+
+.main-container:last-child {
+    margin-bottom: 0px;
+}
+
+.main-category-container {
+    border: 1px solid black;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.main-category-container:first-child {
+    margin-top: 0px;
+}
+
+.main-category-container:last-child {
+    margin-bottom: 0px;
+}
+
+.tag-container {
+    text-align: center;
+    border-style: ridge;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.tag-container:hover {
+    color: white;
+    background-color: grey;
+}

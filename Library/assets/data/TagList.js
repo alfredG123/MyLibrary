@@ -1,0 +1,22 @@
+const tag_text1 = 'tag 1';
+const tag_text2 = 'tag 2';
+const tag_text3 = 'tag 3';
+const tag_text4 = 'tag 4';
+const tag_text5 = 'tag 5';
+const tag_text6 = 'tag 6';
+const tag_text7 = 'tag 7';
+const tag_text8 = 'tag 8';
+const tag_text9 = 'tag 9';
+const tag_text10 = 'tag 10';
+
+const tag_list = [];
+tag_list.push(tag_text1);
+tag_list.push(tag_text2);
+tag_list.push(tag_text3);
+tag_list.push(tag_text4);
+tag_list.push(tag_text5);
+tag_list.push(tag_text6);
+tag_list.push(tag_text7);
+tag_list.push(tag_text8);
+tag_list.push(tag_text9);
+tag_list.push(tag_text10);
