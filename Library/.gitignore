@@ -1,2 +1,5 @@
 # Ignore all .txt files
 *.txt
+
+# ignore all files in images folder
+/assets/images/
