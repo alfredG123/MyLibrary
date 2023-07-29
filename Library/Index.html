@@ -6,53 +6,56 @@
 
     <title>Library</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Index.css">
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="css/external/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/Constant.js"></script>
-    <script type="text/javascript" src="js/IndexFunctions.js"></script>
+    <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="pages/index/index.css">
+
+    <!-- External Javascript-->
+    <script type="text/javascript" src="js/external/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="js/external/bootstrap.min.js"></script>
+
+    <!-- Internal Javascript-->
+    <script type="text/javascript" src="js/constant.js"></script>
+    <script type="text/javascript" src="pages/index/index-functions.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#" onclick="ChangeToHome();">Library</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#index_nav_div">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="index_nav_div">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a id="home_link" class="nav-link active" aria-current="page" href="#"
-                            onclick="ChangeToHome();">Home</a>
+                        <a id="index_home_link" class="nav-link active" href="#" onclick="ChangeToHome();">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a id="video_link" class="nav-link" href="#" onclick="ChangeToVideo();">Video</a>
+                        <a id="index_video_link" class="nav-link" href="#" onclick="ChangeToVideo();">Video</a>
                     </li>
                     <li class="nav-item">
-                        <a id="anime_link" class="nav-link" href="#" onclick="ChangeToAnime();">Anime</a>
+                        <a id="index_anime_link" class="nav-link" href="#" onclick="ChangeToAnime();">Anime</a>
                     </li>
                     <li class="nav-item">
-                        <a id="manga_link" class="nav-link" href="#" onclick="ChangeToManga();">Manga</a>
+                        <a id="index_manga_link" class="nav-link" href="#" onclick="ChangeToManga();">Manga</a>
                     </li>
                     <li class="nav-item">
-                        <a id="tags_link" class="nav-link" href="#" onclick="ChangeToTags();">Tags</a>
+                        <a id="index_tags_link" class="nav-link" href="#" onclick="ChangeToTags();">Tags</a>
                     </li>
                 </ul>
 
                 <form class="d-flex">
-                    <input id="search_text_textbox" class="form-control me-2" type="search" placeholder="Search Title"
-                        aria-label="Search">
+                    <input id="index_search_input" class="form-control me-2" type="search" placeholder="Search Title">
                     <button class="btn btn-outline-success" type="button" onclick="SearchTitle();">Search</button>
                 </form>
             </div>
         </div>
     </nav>
-    <iframe id="iframe_main" src="Home.html" title="Library"
+
+    <iframe id="index_main_content_iframe" src="pages/home/home.html" title="Library"
         sandbox="allow-scripts allow-same-origin allow-modals"></iframe>
 </body>
 

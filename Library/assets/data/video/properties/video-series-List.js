@@ -1,26 +1,8 @@
-const video_series1 = 'video series 1';
-const video_series2 = 'video series 2';
-const video_series3 = 'video series 3';
-const video_series4 = 'video series 4';
-const video_series5 = 'video series 5';
-const video_series6 = 'video series 6';
-const video_series7 = 'video series 7';
-const video_series8 = 'video series 8';
-const video_series9 = 'video series 9';
-const video_series10 = 'video series 10';
-const video_series11 = 'video series 11';
-const video_series12 = 'video series 12';
-
-const video_serie_list = [];
-video_serie_list.push(video_series1);
-video_serie_list.push(video_series2);
-video_serie_list.push(video_series3);
-video_serie_list.push(video_series4);
-video_serie_list.push(video_series5);
-video_serie_list.push(video_series6);
-video_serie_list.push(video_series7);
-video_serie_list.push(video_series8);
-video_serie_list.push(video_series9);
-video_serie_list.push(video_series10);
-video_serie_list.push(video_series11);
-video_serie_list.push(video_series12);
+const VIDEO_SERIES_LIST = [
+    'video series 1',
+    'video series 2',
+    'video series 3',
+    'video series 4',
+    'video series 5',
+    'video series 6',
+];

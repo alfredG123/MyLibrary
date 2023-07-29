@@ -4,73 +4,85 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Tags.css">
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="../../css/external/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript" src="js/Constant.js"></script>
-    <script type="text/javascript" src="js/data/ActorList.js"></script>
-    <script type="text/javascript" src="js/data/AuthorList.js"></script>
-    <script type="text/javascript" src="js/data/TagList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeSerieList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeList.js"></script>
-    <script type="text/javascript" src="js/data/MangaSerieList.js"></script>
-    <script type="text/javascript" src="js/data/MangaList.js"></script>
-    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
-    <script type="text/javascript" src="js/data/VideoList.js"></script>
-    <script type="text/javascript" src="js/TagsFunctions.js"></script>
+    <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="tags.css">
+
+    <!-- External Javascript-->
+    <script type="text/javascript" src="../../js/external/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
+
+    <!-- Internal Stylesheets-->
+    <script type="text/javascript" src="../../js/constant.js"></script>
+    <!-- Assets -->
+    <script type="text/javascript" src="../../assets/data/tag-list.js"></script>
+    <!-- Anime -->
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/anime-list.js"></script>
+    <!-- Manga -->
+    <script type="text/javascript" src="../../assets/data/manga/properties/author-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/properties/manga-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/manga-list.js"></script>
+    <!-- Video -->
+    <script type="text/javascript" src="../../assets/data/video/properties/actor-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-series-List.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/video-list.js"></script>
+    <!-- Page -->
+    <script type="text/javascript" src="tags-functions.js"></script>
 </head>
 
 <body>
-    <div class="main-container">
-        <div class="main-category-container">
+    <div class="tags-main-div">
+        <div class="tags-main-category-div">
             <label>Tags</label>
-            <div id="tags_container" class="main-category-container d-flex flex-wrap">
+            <div id="tags_tag_div" class="tags-main-category-div d-flex flex-wrap">
             </div>
         </div>
-        <div class="main-category-container">
+        <div class="tags-main-category-div">
             <label>Video</label>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Actors</label>
-                <div id="video_actors_container" class="d-flex flex-wrap">
+                <div id="tags_actors_div" class="d-flex flex-wrap">
                 </div>
             </div>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Series:</label>
-                <div id="video_series_container" class="d-flex flex-wrap">
+                <div id="tags_video_series_div" class="d-flex flex-wrap">
                 </div>
             </div>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Company:</label>
-                <div id="video_companies_container" class="d-flex flex-wrap">
+                <div id="tags_video_companies_div" class="d-flex flex-wrap">
                 </div>
             </div>
         </div>
-        <div class="main-category-container">
+        <div class="tags-main-category-div">
             <label>Anime</label>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Series:</label>
-                <div id="anime_series_container" class="d-flex flex-wrap">
+                <div id="tags_anime_series_div" class="d-flex flex-wrap">
                 </div>
             </div>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Company:</label>
-                <div id="anime_companies_container" class="d-flex flex-wrap">
+                <div id="tags_anime_companies_div" class="d-flex flex-wrap">
                 </div>
             </div>
         </div>
-        <div class="main-category-container">
+        <div class="tags-main-category-div">
             <label>Manga</label>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Authors</label>
-                <div id="manga_authors_container" class="d-flex flex-wrap">
+                <div id="tags_authors_div" class="d-flex flex-wrap">
                 </div>
             </div>
-            <div class="main-category-container">
+            <div class="tags-main-category-div">
                 <label>Series:</label>
-                <div id="manga_series_container" class="d-flex flex-wrap">
+                <div id="tags_manga_series_div" class="d-flex flex-wrap">
                 </div>
             </div>
         </div>

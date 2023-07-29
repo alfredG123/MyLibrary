@@ -1,26 +1,8 @@
-const video_company1 = 'video company 1';
-const video_company2 = 'video company 2';
-const video_company3 = 'video company 3';
-const video_company4 = 'video company 4';
-const video_company5 = 'video company 5';
-const video_company6 = 'video company 6';
-const video_company7 = 'video company 7';
-const video_company8 = 'video company 8';
-const video_company9 = 'video company 9';
-const video_company10 = 'video company 10';
-const video_company11 = 'video company 11';
-const video_company12 = 'video company 12';
-
-const video_company_list = [];
-video_company_list.push(video_company1);
-video_company_list.push(video_company2);
-video_company_list.push(video_company3);
-video_company_list.push(video_company4);
-video_company_list.push(video_company5);
-video_company_list.push(video_company6);
-video_company_list.push(video_company7);
-video_company_list.push(video_company8);
-video_company_list.push(video_company9);
-video_company_list.push(video_company10);
-video_company_list.push(video_company11);
-video_company_list.push(video_company12);
+const VIDEO_COMPANY_LIST = [
+    'video company 1',
+    'video company 2',
+    'video company 3',
+    'video company 4',
+    'video company 5',
+    'video company 6',
+];

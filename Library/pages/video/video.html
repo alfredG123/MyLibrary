@@ -4,32 +4,37 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/General.css">
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="../../css/external/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript" src="js/Constant.js"></script>
-    <script type="text/javascript" src="js/data/ActorList.js"></script>
-    <script type="text/javascript" src="js/data/AuthorList.js"></script>
-    <script type="text/javascript" src="js/data/TagList.js"></script>
-    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
-    <script type="text/javascript" src="js/data/VideoList.js"></script>
-    <script type="text/javascript" src="js/VideoFunctions.js"></script>
+    <!-- External Javascript-->
+    <script type="text/javascript" src="../../js/external/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
+
+    <!-- Internal Stylesheets-->
+    <script type="text/javascript" src="../../js/constant.js"></script>
+    <!-- Video -->
+    <script type="text/javascript" src="../../assets/data/video/properties/actor-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-series-List.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/video-list.js"></script>
+    <!-- Page -->
+    <script type="text/javascript" src="../../js/paging.js"></script>
+    <script type="text/javascript" src="video-functions.js"></script>
 </head>
 
 <body>
-    <div id="video_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+    <div id="video_list_div" class="d-flex flex-wrap justify-content-start data-list-container"></div>
 
-    <nav class="pagination-container">
-        <ul id="page_bar" class="pagination">
-            <li id="previous_button" class="page-item">
+    <nav id="video_paging_nav" class="pagination-container">
+        <ul id="video_paging_list" class="pagination">
+            <li id="video_previous_button_list_item" class="page-item">
                 <a class="page-link" href="#" onclick="ChangeToPreviousPage();">
                     <span>&laquo;</span>
                     <span class="sr-only">Previous</span>
                 </a>
             </li>
-            <li id="next_button" class="page-item">
+            <li id="video_next_button_list_item" class="page-item">
                 <a class="page-link" href="#" onclick="ChangeToNextPage();">
                     <span>&raquo;</span>
                     <span class="sr-only">Next</span>
@@ -46,7 +51,7 @@
             </div>
         </div>
     </template>
-    <template id="paging_item_template">
+    <template id="video_paging_item_template">
         <li class="page-item"><a paging-item class="page-link" href="#"></a></li>
     </template>
 </body>

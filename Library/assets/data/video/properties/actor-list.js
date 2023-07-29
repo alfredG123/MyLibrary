@@ -1,26 +1,8 @@
-const actor_name1 = 'actor 1';
-const actor_name2 = 'actor 2';
-const actor_name3 = 'actor 3';
-const actor_name4 = 'actor 4';
-const actor_name5 = 'actor 5';
-const actor_name6 = 'actor 6';
-const actor_name7 = 'actor 7';
-const actor_name8 = 'actor 8';
-const actor_name9 = 'actor 9';
-const actor_name10 = 'actor 10';
-const actor_name11 = 'actor 11';
-const actor_name12 = 'actor 12';
-
-const actor_list = [];
-actor_list.push(actor_name1);
-actor_list.push(actor_name2);
-actor_list.push(actor_name3);
-actor_list.push(actor_name4);
-actor_list.push(actor_name5);
-actor_list.push(actor_name6);
-actor_list.push(actor_name7);
-actor_list.push(actor_name8);
-actor_list.push(actor_name9);
-actor_list.push(actor_name10);
-actor_list.push(actor_name11);
-actor_list.push(actor_name12);
+const ACTOR_LIST = [
+    'actor 1',
+    'actor 2',
+    'actor 3',
+    'actor 4',
+    'actor 5',
+    'actor 6',
+];

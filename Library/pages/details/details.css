@@ -1,13 +1,7 @@
-.tag-container {
-    text-align: center;
-    border-style: ridge;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.tag-container:hover {
-    color: white;
-    background-color: grey;
+.detail_info_div {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .preview_image {
@@ -15,28 +9,22 @@
     max-width: 300px;
 }
 
-.detail_info_container {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.detail_text {
-    margin: 10px;
-}
-
-.link-container {
+.readonly-text-label {
+    text-align: center;
     border-style: ridge;
+    margin: 5px;
+    padding: 5px;
+}
+
+.link-text-label {
+    text-align: center;
+    border-style: ridge;
+    margin: 5px;
+    padding: 5px;
     cursor: pointer;
-    margin: 10px;
-    padding-left: 10px;
 }
 
-.link-container:hover {
-    color:white;
+.link-text-label:hover {
+    color: white;
     background-color: grey;
-}
-
-.other-title-text {
-    padding-left: 10px;
 }

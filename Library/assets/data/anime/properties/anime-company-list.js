@@ -1,26 +1,8 @@
-const anime_company1 = 'anime company 1';
-const anime_company2 = 'anime company 2';
-const anime_company3 = 'anime company 3';
-const anime_company4 = 'anime company 4';
-const anime_company5 = 'anime company 5';
-const anime_company6 = 'anime company 6';
-const anime_company7 = 'anime company 7';
-const anime_company8 = 'anime company 8';
-const anime_company9 = 'anime company 9';
-const anime_company10 = 'anime company 10';
-const anime_company11 = 'anime company 11';
-const anime_company12 = 'anime company 12';
-
-const anime_company_list = [];
-anime_company_list.push(anime_company1);
-anime_company_list.push(anime_company2);
-anime_company_list.push(anime_company3);
-anime_company_list.push(anime_company4);
-anime_company_list.push(anime_company5);
-anime_company_list.push(anime_company6);
-anime_company_list.push(anime_company7);
-anime_company_list.push(anime_company8);
-anime_company_list.push(anime_company9);
-anime_company_list.push(anime_company10);
-anime_company_list.push(anime_company11);
-anime_company_list.push(anime_company12);
+const ANIME_COMPANY_LIST = [
+    'anime company 1',
+    'anime company 2',
+    'anime company 3',
+    'anime company 4',
+    'anime company 5',
+    'anime company 6',
+];

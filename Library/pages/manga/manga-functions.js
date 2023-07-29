@@ -1,104 +1,81 @@
-const item_number_per_page = 100;
-
-var current_page_number = 1;
+// Controls
+var manga_card_template;
+var manga_list_div;
+var manga_paging_item_template;
+var manga_paging_list;
+var manga_paging_nav;
+var manga_previous_button_list_item;
+var manga_next_button_list_item;
 
 $(document).ready(function () {
-    const manga_card_template = document.getElementById('manga_card_template');
-    const paging_item_template = document.getElementById('paging_item_template');
-    const page_bar = document.getElementById('page_bar');
-    const previous_button = document.getElementById('previous_button');
-    const next_button = document.getElementById('next_button');
+    manga_card_template = document.getElementById('manga_card_template');
+    manga_list_div = document.getElementById('manga_list_div');
+    manga_paging_item_template = document.getElementById('manga_paging_item_template');
+    manga_paging_list = document.getElementById('manga_paging_list');
+    manga_paging_nav = document.getElementById('manga_paging_nav');
+    manga_previous_button_list_item = document.getElementById('manga_previous_button_list_item');
+    manga_next_button_list_item = document.getElementById('manga_next_button_list_item');
 
-    LoadPaging();
+    // Create page items
+    BuildPaging(MANGA_LIST, 'manga_paging_nav', manga_paging_item_template, manga_next_button_list_item, manga_paging_list);
+
+    // Create cards for list items
     LoadPageData(current_page_number);
 });
 
-function LoadPaging() {
-    let total_page_number = Math.ceil(manga_list.size / item_number_per_page);
-
-    for (var i = 1; i <= total_page_number; i++) {
-        let paging_item = paging_item_template.content.cloneNode(true).children[0];
-        let paging_item_link = paging_item.querySelector('[paging-item]');
-
-        paging_item.setAttribute('id', 'page_item_' + i);
-        paging_item.setAttribute('onclick', 'ChangePage(' + i + ')');
-        paging_item_link.innerHTML = i;
-        page_bar.insertBefore(paging_item, next_button);
-    }
-}
-
+// Create cards for list items
 function LoadPageData(page_number) {
-    const active_class = 'active';
-    const disabled_class = 'disabled';
 
-    let manga_container = document.getElementById('manga_container');
-    let total_page_number = Math.ceil(manga_list.size / item_number_per_page);
-    let start_index = (page_number - 1) * item_number_per_page;
-    let end_index = page_number * item_number_per_page;
-
-    if (end_index > manga_list.size) {
-        end_index = manga_list.size;
+    // Determine the range of available items
+    let start_index = (page_number - 1) * ITEM_NUMBER_PER_PAGE;
+    let end_index = page_number * ITEM_NUMBER_PER_PAGE;
+    if (end_index > MANGA_LIST.length) {
+        end_index = MANGA_LIST.length;
     }
 
-    previous_button.classList.remove(disabled_class);
-    next_button.classList.remove(disabled_class);
-    if (page_number == 1) {
-        previous_button.classList.add(disabled_class);
-    }
-    if (page_number == total_page_number) {
-        next_button.classList.add(disabled_class);
-    }
+    // Update the paging control
+    UpdatePagingUI(manga_previous_button_list_item, manga_next_button_list_item);
 
-    for (var i = 1; i <= total_page_number; i++) {
-        let page_item_id = 'page_item_' + i;
-        let paging_item = document.getElementById(page_item_id);
+    // Clear all existing cards
+    manga_list_div.innerHTML = '';
 
-        if (i == page_number) {
-            paging_item.classList.add(active_class);
-        }
-        else {
-            paging_item.classList.remove(active_class);
-        }
-    }
-
-    manga_container.innerHTML = '';
-
-    for (var i = start_index + 1; i <= end_index; i++) {
-        let manga_item = manga_list.get(i);
+    // Create a card for each item
+    for (let i = start_index; i < end_index; i++) {
+        let manga_item = MANGA_LIST[i];
         let manga_card = manga_card_template.content.cloneNode(true).children[0];
 
-        let manga_image = manga_card.querySelector('[manga-image]');
-        let manga_title = manga_card.querySelector('[manga-title]');
+        SetupMangaImage(manga_card, manga_item);
+        SetupMangaTitle(manga_card, manga_item);
 
-        manga_image.src = image_folder_path + manga_item.image;
-        manga_title.innerHTML = manga_item.title;
+        manga_card.setAttribute('onclick', 'ViewDetails(' + i + ')');
 
-        manga_image.setAttribute('onclick', 'ViewDetails(' + i + ')');
-
-        manga_container.appendChild(manga_card);
+        manga_list_div.appendChild(manga_card);
     }
 }
 
+// Add an image to the card
+function SetupMangaImage(manga_card, manga_item) {
+
+    // If the image is not specified, return
+    if (manga_item.image == null)
+        return;
+
+    let manga_image = manga_card.querySelector('[manga-image]');
+    manga_image.src = '../../' + IMAGE_FOLDER_PATH_FROM_ROOT + manga_item.image;
+}
+
+// Set up the title of the card
+function SetupMangaTitle(manga_card, manga_item) {
+
+    // If the title is not specified, return
+    if (manga_item.title == null)
+        return;
+
+    let manga_title = manga_card.querySelector('[manga-title]');
+    manga_title.innerHTML = manga_item.title;
+}
+
+// Raise an event to the parent page to view details
 function ViewDetails(index) {
-    let detail_href = 'Details.html?DataType=' + manga_data_type + '&ItemIndex=' + index;
-
-    window.top.postMessage({ 'function': 'ChangePage', 'parameters': detail_href }, '*');
-}
-
-function ChangeToPreviousPage() {
-    current_page_number--;
-
-    LoadPageData(current_page_number);
-}
-
-function ChangeToNextPage() {
-    current_page_number++;
-
-    LoadPageData(current_page_number);
-}
-
-function ChangePage(page_number) {
-    current_page_number = page_number;
-
-    LoadPageData(current_page_number);
+    window.top.postMessage({ 'function': 'ViewDetail', 'parameters': MANGA_DATA_TYPE + '|' + index }, '*');
 }

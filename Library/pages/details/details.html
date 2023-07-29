@@ -4,116 +4,135 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/General.css">
-    <link rel="stylesheet" href="css/Details.css">
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="../../css/external/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript" src="js/Constant.js"></script>
-    <script type="text/javascript" src="js/data/ActorList.js"></script>
-    <script type="text/javascript" src="js/data/AuthorList.js"></script>
-    <script type="text/javascript" src="js/data/TagList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeSerieList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeList.js"></script>
-    <script type="text/javascript" src="js/data/MangaSerieList.js"></script>
-    <script type="text/javascript" src="js/data/MangaList.js"></script>
-    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
-    <script type="text/javascript" src="js/data/VideoList.js"></script>
-    <script type="text/javascript" src="js/DetailFunctions.js"></script>
+    <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="details.css">
+
+    <!-- External Javascript-->
+    <script type="text/javascript" src="../../js/external/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
+
+    <!-- Internal Stylesheets-->
+    <script type="text/javascript" src="../../js/constant.js"></script>
+    <!-- Assets -->
+    <script type="text/javascript" src="../../assets/data/tag-list.js"></script>
+    <!-- Anime -->
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/anime-list.js"></script>
+    <!-- Manga -->
+    <script type="text/javascript" src="../../assets/data/manga/properties/author-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/properties/manga-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/manga-list.js"></script>
+    <!-- Video -->
+    <script type="text/javascript" src="../../assets/data/video/properties/actor-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-series-List.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/video-list.js"></script>
+    <!-- Page -->
+    <script type="text/javascript" src="details-functions.js"></script>
 </head>
 
 <body>
-    <div class="row detail_info_container">
+    <div class="row detail_info_div">
         <div class="col-sm-4">
             <img id="detail_image" class="preview_image">
         </div>
         <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-3 field-container">
+            <div id="detail_title_div" class="row">
+                <div class="col-sm-3">
                     <label>Title:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_title" class="detail_text"></div>
+                    <label id="detail_title_label" class="readonly-text-label"></label>
                 </div>
             </div>
 
-            <div id="detail_other_title_container" class="row">
-                <div class="col-sm-3 field-container">
-                    <label>Other Titles:</label>
+            <div id="detail_alternate_title_list_div" class="row">
+                <div class="col-sm-3">
+                    <label>Alternate Titles:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_other_title_list" class="d-flex flex-column"></div>
-                </div>
-            </div>
-
-            <div id="detail_serie_container" class="row">
-                <div class="col-sm-3 field-container">
-                    <label>Serie:</label>
-                </div>
-                <div class="col-sm-9">
-                    <div class="d-flex flex-wrap flex-column">
-                        <div id="detail_serie" class="link-container"></div>
+                    <div id="detail_alternate_title_label_list_div">
                     </div>
                 </div>
             </div>
 
-            <div id="detail_code_container" class="row">
-                <div class="col-sm-3 field-container">
+            <div id="detail_series_div" class="row">
+                <div class="col-sm-3">
+                    <label>Series:</label>
+                </div>
+                <div class="col-sm-9">
+                    <label id="detail_series_label" class="link-text-label"></label>
+                </div>
+            </div>
+
+            <div id="detail_episode_div" class="row">
+                <div class="col-sm-3">
+                    <label>Episode:</label>
+                </div>
+                <div class="col-sm-9">
+                    <label id="detail_episode_label" class="readonly-text-label"></label>
+                </div>
+            </div>
+
+            <div id="detail_code_div" class="row">
+                <div class="col-sm-3">
                     <label>Code:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_code" class="detail_text"></div>
+                    <label id="detail_code_label" class="readonly-text-label"></label>
                 </div>
             </div>
 
-            <div id="detail_author_container" class="row">
-                <div class="col-sm-3 field-container">
+            <div id="detail_author_div" class="row">
+                <div class="col-sm-3">
                     <label>Author:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div class="d-flex flex-wrap flex-column">
-                        <div id="detail_author" class="link-container"></div>
-                    </div>
+                    <label id="detail_author_label" class="link-text-label"></label>
                 </div>
             </div>
 
-            <div id="detail_actor_list_container" class="row">
-                <div class="col-sm-3 field-container">
+            <div id="detail_actor_list_div" class="row">
+                <div class="col-sm-3">
                     <label>Actors:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_actor_list" class="d-flex flex-wrap"></div>
-                </div>
-            </div>
-
-            <div id="detail_company_container" class="row">
-                <div class="col-sm-3 field-container">
-                    <label>Company:</label>
-                </div>
-                <div class="col-sm-9">
-                    <div class="d-flex flex-wrap flex-column">
-                        <div id="detail_company" class="link-container"></div>
+                    <div id="detail_actor_label_list_div">
                     </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-3 field-container">
-                    <label>Tags:</label>
+            <div id="detail_company_list_div" class="row">
+                <div class="col-sm-3">
+                    <label>Companies:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_tag_list" class="d-flex flex-wrap"></div>
+                    <div id="detail_company_label_list_div">
+                    </div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-sm-3 field-container">
+            <div id="detail_tag_list_div" class="row">
+                <div class="col-sm-3">
+                    <label>Tags:</label>
+                </div>
+                <div class="col-sm-9">
+                    <div id="detail_tag_label_list_div">
+                    </div>
+                </div>
+            </div>
+
+            <div id="detail_link_list_div" class="row">
+                <div class="col-sm-3">
                     <label>Links:</label>
                 </div>
                 <div class="col-sm-9">
-                    <div id="detail_link_list" class="d-flex flex-column"></div>
+                    <div id="detail_link_label_list_div">
+                    </div>
                 </div>
             </div>
         </div>

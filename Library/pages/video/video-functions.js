@@ -1,104 +1,81 @@
-const item_number_per_page = 100;
-
-var current_page_number = 1;
+// Controls
+var video_card_template;
+var video_list_div;
+var video_paging_item_template;
+var video_paging_list;
+var video_paging_nav;
+var video_previous_button_list_item;
+var video_next_button_list_item;
 
 $(document).ready(function () {
-    const video_card_template = document.getElementById('video_card_template');
-    const paging_item_template = document.getElementById('paging_item_template');
-    const page_bar = document.getElementById('page_bar');
-    const previous_button = document.getElementById('previous_button');
-    const next_button = document.getElementById('next_button');
+    video_card_template = document.getElementById('video_card_template');
+    video_list_div = document.getElementById('video_list_div');
+    video_paging_item_template = document.getElementById('video_paging_item_template');
+    video_paging_list = document.getElementById('video_paging_list');
+    video_paging_nav = document.getElementById('video_paging_nav');
+    video_previous_button_list_item = document.getElementById('video_previous_button_list_item');
+    video_next_button_list_item = document.getElementById('video_next_button_list_item');
 
-    LoadPaging();
+    // Create page items
+    BuildPaging(VIDEO_LIST, 'video_paging_nav', video_paging_item_template, video_next_button_list_item, video_paging_list);
+
+    // Create cards for list items
     LoadPageData(current_page_number);
 });
 
-function LoadPaging() {
-    let total_page_number = Math.ceil(video_list.size / item_number_per_page);
-
-    for (var i = 1; i <= total_page_number; i++) {
-        let paging_item = paging_item_template.content.cloneNode(true).children[0];
-        let paging_item_link = paging_item.querySelector('[paging-item]');
-
-        paging_item.setAttribute('id', 'page_item_' + i);
-        paging_item.setAttribute('onclick', 'ChangePage(' + i + ')');
-        paging_item_link.innerHTML = i;
-        page_bar.insertBefore(paging_item, next_button);
-    }
-}
-
+// Create cards for list items
 function LoadPageData(page_number) {
-    const active_class = 'active';
-    const disabled_class = 'disabled';
 
-    let video_container = document.getElementById('video_container');
-    let total_page_number = Math.ceil(video_list.size / item_number_per_page);
-    let start_index = (page_number - 1) * item_number_per_page;
-    let end_index = page_number * item_number_per_page;
-
-    if (end_index > video_list.size) {
-        end_index = video_list.size;
+    // Determine the range of available items
+    let start_index = (page_number - 1) * ITEM_NUMBER_PER_PAGE;
+    let end_index = page_number * ITEM_NUMBER_PER_PAGE;
+    if (end_index > VIDEO_LIST.length) {
+        end_index = VIDEO_LIST.length;
     }
 
-    previous_button.classList.remove(disabled_class);
-    next_button.classList.remove(disabled_class);
-    if (page_number == 1) {
-        previous_button.classList.add(disabled_class);
-    }
-    if (page_number == total_page_number) {
-        next_button.classList.add(disabled_class);
-    }
+    // Update the paging control
+    UpdatePagingUI(video_previous_button_list_item, video_next_button_list_item);
 
-    for (var i = 1; i <= total_page_number; i++) {
-        let page_item_id = 'page_item_' + i;
-        let paging_item = document.getElementById(page_item_id);
+    // Clear all existing cards
+    video_list_div.innerHTML = '';
 
-        if (i == page_number) {
-            paging_item.classList.add(active_class);
-        }
-        else {
-            paging_item.classList.remove(active_class);
-        }
-    }
-
-    video_container.innerHTML = '';
-
-    for (var i = start_index + 1; i <= end_index; i++) {
-        let video_item = video_list.get(i);
+    // Create a card for each item
+    for (let i = start_index; i < end_index; i++) {
+        let video_item = VIDEO_LIST[i];
         let video_card = video_card_template.content.cloneNode(true).children[0];
 
-        let video_image = video_card.querySelector('[video-image]');
-        let video_title = video_card.querySelector('[video-title]');
+        SetupvideoImage(video_card, video_item);
+        SetupvideoTitle(video_card, video_item);
 
-        video_image.src = image_folder_path + video_item.image;
-        video_title.innerHTML = video_item.title;
+        video_card.setAttribute('onclick', 'ViewDetails(' + i + ')');
 
-        video_image.setAttribute('onclick', 'ViewDetails(' + i + ')');
-
-        video_container.appendChild(video_card);
+        video_list_div.appendChild(video_card);
     }
 }
 
+// Add an image to the card
+function SetupvideoImage(video_card, video_item) {
+
+    // If the image is not specified, return
+    if (video_item.image == null)
+        return;
+
+    let video_image = video_card.querySelector('[video-image]');
+    video_image.src = '../../' + IMAGE_FOLDER_PATH_FROM_ROOT + video_item.image;
+}
+
+// Set up the title of the card
+function SetupvideoTitle(video_card, video_item) {
+
+    // If the title is not specified, return
+    if (video_item.title == null)
+        return;
+
+    let video_title = video_card.querySelector('[video-title]');
+    video_title.innerHTML = video_item.title;
+}
+
+// Raise an event to the parent page to view details
 function ViewDetails(index) {
-    let detail_href = 'Details.html?DataType=' + video_data_type + '&ItemIndex=' + index;
-
-    window.top.postMessage({ 'function': 'ChangePage', 'parameters': detail_href }, '*');
-}
-
-function ChangeToPreviousPage() {
-    current_page_number--;
-
-    LoadPageData(current_page_number);
-}
-
-function ChangeToNextPage() {
-    current_page_number++;
-
-    LoadPageData(current_page_number);
-}
-
-function ChangePage(page_number) {
-    current_page_number = page_number;
-
-    LoadPageData(current_page_number);
+    window.top.postMessage({ 'function': 'ViewDetail', 'parameters': VIDEO_DATA_TYPE + '|' + index }, '*');
 }

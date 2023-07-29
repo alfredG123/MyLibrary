@@ -4,31 +4,42 @@
 <head>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/Search.css">
-    <link rel="stylesheet" href="css/General.css">
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="../../css/external/bootstrap.min.css">
 
-    <script type="text/javascript" src="js/jquery-3.7.0.min.js"></script>
-    <script type="text/javascript" src="js/Constant.js"></script>
-    <script type="text/javascript" src="js/data/ActorList.js"></script>
-    <script type="text/javascript" src="js/data/AuthorList.js"></script>
-    <script type="text/javascript" src="js/data/TagList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeSerieList.js"></script>
-    <script type="text/javascript" src="js/data/AnimeList.js"></script>
-    <script type="text/javascript" src="js/data/MangaSerieList.js"></script>
-    <script type="text/javascript" src="js/data/MangaList.js"></script>
-    <script type="text/javascript" src="js/data/VideoCompanyList.js"></script>
-    <script type="text/javascript" src="js/data/VideoSerieList.js"></script>
-    <script type="text/javascript" src="js/data/VideoList.js"></script>
-    <script type="text/javascript" src="js/SearchFunctions.js"></script>
+    <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="search.css">
+
+    <!-- External Javascript-->
+    <script type="text/javascript" src="../../js/external/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
+
+    <!-- Internal Stylesheets-->
+    <script type="text/javascript" src="../../js/constant.js"></script>
+    <!-- Assets -->
+    <script type="text/javascript" src="../../assets/data/tag-list.js"></script>
+    <!-- Anime -->
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/properties/anime-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/anime/anime-list.js"></script>
+    <!-- Manga -->
+    <script type="text/javascript" src="../../assets/data/manga/properties/author-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/properties/manga-series-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/manga/manga-list.js"></script>
+    <!-- Video -->
+    <script type="text/javascript" src="../../assets/data/video/properties/actor-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-company-list.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/properties/video-series-List.js"></script>
+    <script type="text/javascript" src="../../assets/data/video/video-list.js"></script>
+    <!-- Page -->
+    <script type="text/javascript" src="search-functions.js"></script>
 </head>
 
 <body>
     <div class="tab">
-        <button id="video_tab_link" class="tab-link" onclick="SelectTab(video_tab_index);">Video</button>
-        <button id="anime_tab_link" class="tab-link" onclick="SelectTab(anime_tab_index);">Anime</button>
-        <button id="manga_tab_link" class="tab-link" onclick="SelectTab(manga_tab_index);">Manga</button>
+        <button id="video_tab_link" class="tab-link" onclick="SelectTab(VIDEO_TAB_INDEX);">Video</button>
+        <button id="anime_tab_link" class="tab-link" onclick="SelectTab(ANIME_TAB_INDEX);">Anime</button>
+        <button id="manga_tab_link" class="tab-link" onclick="SelectTab(MANGA_TAB_INDEX);">Manga</button>
     </div>
 
     <div id="video_tab" class="tab-content">
