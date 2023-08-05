@@ -3,9 +3,9 @@ var current_page_number = 1;
 var total_page_number = 0;
 
 // Create page items and add them to the paging control
-function BuildPaging(item_list, item_paging_nav_id, paging_item_template, next_button, paging_bar) {
+function BuildPaging(item_list, item_paging_nav, paging_item_template, next_button, paging_bar) {
 
-    if (!HideOrDisplayPagingControl(item_list, item_paging_nav_id))
+    if (!HideOrDisplayPagingControl(item_list, item_paging_nav))
         return;
 
     // Determine the total number of pages
@@ -28,8 +28,7 @@ function BuildPaging(item_list, item_paging_nav_id, paging_item_template, next_b
     }
 }
 
-function HideOrDisplayPagingControl(item_list, item_paging_nav_id) {
-    let item_paging_nav = document.getElementById(item_paging_nav_id);
+function HideOrDisplayPagingControl(item_list, item_paging_nav) {
 
     // Hide the paging by default
     item_paging_nav.style.display = 'none';

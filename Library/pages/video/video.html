@@ -12,19 +12,24 @@
     <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
 
     <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="../../css/general.css">
+
+    <!-- Internal Javascript-->
     <script type="text/javascript" src="../../js/constant.js"></script>
     <!-- Video -->
     <script type="text/javascript" src="../../assets/data/video/properties/actor-list.js"></script>
     <script type="text/javascript" src="../../assets/data/video/properties/video-company-list.js"></script>
     <script type="text/javascript" src="../../assets/data/video/properties/video-series-List.js"></script>
     <script type="text/javascript" src="../../assets/data/video/video-list.js"></script>
-    <!-- Page -->
-    <script type="text/javascript" src="../../js/paging.js"></script>
     <script type="text/javascript" src="video-functions.js"></script>
+    <!-- Paging -->
+    <script type="text/javascript" src="../../js/paging.js"></script>
 </head>
 
 <body>
     <div id="video_list_div" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+
+    <br />
 
     <nav id="video_paging_nav" class="pagination-container">
         <ul id="video_paging_list" class="pagination">
@@ -36,8 +41,8 @@
             </li>
             <li id="video_next_button_list_item" class="page-item">
                 <a class="page-link" href="#" onclick="ChangeToNextPage();">
-                    <span>&raquo;</span>
                     <span class="sr-only">Next</span>
+                    <span>&raquo;</span>
                 </a>
             </li>
         </ul>
@@ -52,7 +57,9 @@
         </div>
     </template>
     <template id="video_paging_item_template">
-        <li class="page-item"><a paging-item class="page-link" href="#"></a></li>
+        <li class="page-item">
+            <a paging-item class="page-link" href="#"></a>
+        </li>
     </template>
 </body>
 

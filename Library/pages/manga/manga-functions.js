@@ -17,7 +17,7 @@ $(document).ready(function () {
     manga_next_button_list_item = document.getElementById('manga_next_button_list_item');
 
     // Create page items
-    BuildPaging(MANGA_LIST, 'manga_paging_nav', manga_paging_item_template, manga_next_button_list_item, manga_paging_list);
+    BuildPaging(MANGA_LIST, manga_paging_nav, manga_paging_item_template, manga_next_button_list_item, manga_paging_list);
 
     // Create cards for list items
     LoadPageData(current_page_number);

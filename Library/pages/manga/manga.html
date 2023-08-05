@@ -12,18 +12,23 @@
     <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
 
     <!-- Internal Stylesheets-->
+    <link rel="stylesheet" href="../../css/general.css">
+
+    <!-- Internal Javascript-->
     <script type="text/javascript" src="../../js/constant.js"></script>
     <!-- Manga -->
     <script type="text/javascript" src="../../assets/data/manga/properties/author-list.js"></script>
     <script type="text/javascript" src="../../assets/data/manga/properties/manga-series-list.js"></script>
     <script type="text/javascript" src="../../assets/data/manga/manga-list.js"></script>
-    <!-- Page -->
-    <script type="text/javascript" src="../../js/paging.js"></script>
     <script type="text/javascript" src="manga-functions.js"></script>
+    <!-- Paging -->
+    <script type="text/javascript" src="../../js/paging.js"></script>
 </head>
 
 <body>
     <div id="manga_list_div" class="d-flex flex-wrap justify-content-start data-list-container"></div>
+    
+    <br />
 
     <nav id="manga_paging_nav" class="pagination-container">
         <ul id="manga_paging_list" class="pagination">
@@ -35,8 +40,8 @@
             </li>
             <li id="manga_next_button_list_item" class="page-item">
                 <a class="page-link" href="#" onclick="ChangeToNextPage();">
-                    <span>&raquo;</span>
                     <span class="sr-only">Next</span>
+                    <span>&raquo;</span>
                 </a>
             </li>
         </ul>
@@ -51,7 +56,9 @@
         </div>
     </template>
     <template id="manga_paging_item_template">
-        <li class="page-item"><a paging-item class="page-link" href="#"></a></li>
+        <li class="page-item">
+            <a paging-item class="page-link" href="#"></a>
+        </li>
     </template>
 </body>
 

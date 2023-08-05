@@ -17,7 +17,7 @@ $(document).ready(function () {
     video_next_button_list_item = document.getElementById('video_next_button_list_item');
 
     // Create page items
-    BuildPaging(VIDEO_LIST, 'video_paging_nav', video_paging_item_template, video_next_button_list_item, video_paging_list);
+    BuildPaging(VIDEO_LIST, video_paging_nav, video_paging_item_template, video_next_button_list_item, video_paging_list);
 
     // Create cards for list items
     LoadPageData(current_page_number);
