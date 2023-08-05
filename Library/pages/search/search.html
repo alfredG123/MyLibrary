@@ -9,12 +9,13 @@
 
     <!-- Internal Stylesheets-->
     <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="../../css/general.css">
 
     <!-- External Javascript-->
     <script type="text/javascript" src="../../js/external/jquery-3.7.0.min.js"></script>
     <script type="text/javascript" src="../../js/external/bootstrap.min.js"></script>
 
-    <!-- Internal Stylesheets-->
+    <!-- Internal Javascript-->
     <script type="text/javascript" src="../../js/constant.js"></script>
     <!-- Assets -->
     <script type="text/javascript" src="../../assets/data/tag-list.js"></script>
@@ -45,19 +46,19 @@
     <div id="video_tab" class="tab-content">
         <div id="video_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
 
-        <label id="no_video_label">There are not video.</label>
+        <label id="no_video_label">There are no matching video.</label>
     </div>
 
     <div id="anime_tab" class="tab-content">
         <div id="anime_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
 
-        <label id="no_anime_label">There are not anime.</label>
+        <label id="no_anime_label">There are no matching anime.</label>
     </div>
 
     <div id="manga_tab" class="tab-content">
         <div id="manga_container" class="d-flex flex-wrap justify-content-start data-list-container"></div>
 
-        <label id="no_manga_label">There are not manga.</label>
+        <label id="no_manga_label">There are no matching manga.</label>
     </div>
 
     <template id="item_card_template">
