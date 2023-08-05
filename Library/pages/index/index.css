@@ -1,6 +1,11 @@
-/* Expand the iframe */
+/* Expand the iframe to fill the container */
 iframe {
-    position: fixed;
     width: 100%;
-    height: 90%;
+    height: 100%;
+}
+
+/* Restrict the iframe */
+.iframe_container {
+    width: 100vw;
+    height: 90vh;
 }
