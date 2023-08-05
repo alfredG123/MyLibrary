@@ -7,6 +7,10 @@ var anime_paging_nav;
 var anime_previous_button_list_item;
 var anime_next_button_list_item;
 
+// Paging
+var current_page_number = 1;
+var total_page_number = 0;
+
 $(document).ready(function () {
     anime_card_template = document.getElementById('anime_card_template');
     anime_list_div = document.getElementById('anime_list_div');
@@ -17,7 +21,7 @@ $(document).ready(function () {
     anime_next_button_list_item = document.getElementById('anime_next_button_list_item');
 
     // Create page items
-    BuildPaging(ANIME_LIST, anime_paging_nav, anime_paging_item_template, anime_next_button_list_item, anime_paging_list);
+    total_page_number = BuildPaging(ANIME_LIST, anime_paging_nav, anime_paging_item_template, anime_next_button_list_item, anime_paging_list);
 
     // Create cards for list items
     LoadPageData(current_page_number);
@@ -25,6 +29,7 @@ $(document).ready(function () {
 
 // Create cards for list items
 function LoadPageData(page_number) {
+    current_page_number = page_number;
 
     // Determine the range of available items
     let start_index = (page_number - 1) * ITEM_NUMBER_PER_PAGE;
@@ -34,7 +39,7 @@ function LoadPageData(page_number) {
     }
 
     // Update the paging control
-    UpdatePagingUI(anime_previous_button_list_item, anime_next_button_list_item);
+    UpdatePagingUI(current_page_number, total_page_number, anime_previous_button_list_item, anime_next_button_list_item);
 
     // Clear all existing cards
     anime_list_div.innerHTML = '';

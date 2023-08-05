@@ -1,9 +1,6 @@
-// Paging
-var current_page_number = 1;
-var total_page_number = 0;
-
 // Create page items and add them to the paging control
 function BuildPaging(item_list, item_paging_nav, paging_item_template, next_button, paging_bar) {
+    let total_page_number;
 
     if (!HideOrDisplayPagingControl(item_list, item_paging_nav))
         return;
@@ -26,6 +23,8 @@ function BuildPaging(item_list, item_paging_nav, paging_item_template, next_butt
         // Insert the page item before the next button
         paging_bar.insertBefore(paging_item, next_button);
     }
+
+    return total_page_number;
 }
 
 function HideOrDisplayPagingControl(item_list, item_paging_nav) {
@@ -45,31 +44,24 @@ function HideOrDisplayPagingControl(item_list, item_paging_nav) {
 
 // Change to the specified page
 function ChangePage(page_number) {
-
-    // If the page is the same, return
-    if (current_page_number == page_number)
-        return;
-
-    current_page_number = page_number;
-
-    LoadPageData(current_page_number);
+    LoadPageData(page_number);
 }
 
 // Change to previous page
-function ChangeToPreviousPage() {
+function ChangeToPreviousPage(current_page_number) {
     current_page_number--;
 
     LoadPageData(current_page_number);
 }
 
 // Change to next page
-function ChangeToNextPage() {
+function ChangeToNextPage(current_page_number) {
     current_page_number++;
 
     LoadPageData(current_page_number);
 }
 
-function UpdatePagingUI(previous_button, next_button) {
+function UpdatePagingUI(current_page_number, total_page_number, previous_button, next_button) {
 
     // Set up the previous buttons
     previous_button.classList.remove(DISABLED_CLASS);

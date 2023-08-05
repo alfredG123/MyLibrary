@@ -7,6 +7,10 @@ var video_paging_nav;
 var video_previous_button_list_item;
 var video_next_button_list_item;
 
+// Paging
+var current_page_number = 1;
+var total_page_number = 0;
+
 $(document).ready(function () {
     video_card_template = document.getElementById('video_card_template');
     video_list_div = document.getElementById('video_list_div');
@@ -17,7 +21,7 @@ $(document).ready(function () {
     video_next_button_list_item = document.getElementById('video_next_button_list_item');
 
     // Create page items
-    BuildPaging(VIDEO_LIST, video_paging_nav, video_paging_item_template, video_next_button_list_item, video_paging_list);
+    total_page_number = BuildPaging(VIDEO_LIST, video_paging_nav, video_paging_item_template, video_next_button_list_item, video_paging_list);
 
     // Create cards for list items
     LoadPageData(current_page_number);
@@ -25,6 +29,7 @@ $(document).ready(function () {
 
 // Create cards for list items
 function LoadPageData(page_number) {
+    current_page_number = page_number;
 
     // Determine the range of available items
     let start_index = (page_number - 1) * ITEM_NUMBER_PER_PAGE;
@@ -34,7 +39,7 @@ function LoadPageData(page_number) {
     }
 
     // Update the paging control
-    UpdatePagingUI(video_previous_button_list_item, video_next_button_list_item);
+    UpdatePagingUI(current_page_number, total_page_number, video_previous_button_list_item, video_next_button_list_item);
 
     // Clear all existing cards
     video_list_div.innerHTML = '';

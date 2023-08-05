@@ -29,4 +29,4 @@ const ACTIVE_CLASS = 'active';
 const DISABLED_CLASS = 'disabled';
 
 // Paging
-const ITEM_NUMBER_PER_PAGE = 100;
+const ITEM_NUMBER_PER_PAGE = 20;
