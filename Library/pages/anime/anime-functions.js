@@ -21,7 +21,7 @@ $(document).ready(function () {
     anime_next_button_list_item = document.getElementById('anime_next_button_list_item');
 
     // Create page items
-    total_page_number = BuildPaging(ANIME_LIST, anime_paging_nav, anime_paging_item_template, anime_next_button_list_item, anime_paging_list);
+    total_page_number = BuildPaging(ANIME_LIST, anime_paging_nav, anime_paging_item_template, anime_next_button_list_item, anime_paging_list, 'anime');
 
     // Create cards for list items
     LoadPageData(current_page_number);
@@ -39,7 +39,7 @@ function LoadPageData(page_number) {
     }
 
     // Update the paging control
-    UpdatePagingUI(current_page_number, total_page_number, anime_previous_button_list_item, anime_next_button_list_item);
+    UpdatePagingUI(current_page_number, total_page_number, anime_previous_button_list_item, anime_next_button_list_item, 'anime');
 
     // Clear all existing cards
     anime_list_div.innerHTML = '';

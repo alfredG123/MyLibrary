@@ -21,7 +21,7 @@ $(document).ready(function () {
     manga_next_button_list_item = document.getElementById('manga_next_button_list_item');
 
     // Create page items
-    total_page_number = BuildPaging(MANGA_LIST, manga_paging_nav, manga_paging_item_template, manga_next_button_list_item, manga_paging_list);
+    total_page_number = BuildPaging(MANGA_LIST, manga_paging_nav, manga_paging_item_template, manga_next_button_list_item, manga_paging_list, 'manga');
 
     // Create cards for list items
     LoadPageData(current_page_number);
@@ -39,7 +39,7 @@ function LoadPageData(page_number) {
     }
 
     // Update the paging control
-    UpdatePagingUI(current_page_number, total_page_number, manga_previous_button_list_item, manga_next_button_list_item);
+    UpdatePagingUI(current_page_number, total_page_number, manga_previous_button_list_item, manga_next_button_list_item, 'manga');
 
     // Clear all existing cards
     manga_list_div.innerHTML = '';
