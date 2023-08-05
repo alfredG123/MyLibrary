@@ -115,7 +115,7 @@ function SetupDetailSeries(data_type, detail_item) {
     detail_series_div.style.display = 'none';
 
     // If the item does not belong to any series, return
-    if (detail_item.title == null)
+    if (detail_item.series == null)
         return;
 
     // Display the series field
@@ -149,7 +149,7 @@ function SetupDetailEpisode(detail_item) {
     detail_episode_div.style.display = 'none';
 
     // If the item does not belong to any episode, return
-    if (detail_item.title == null)
+    if (detail_item.episode == null)
         return;
 
     // Display the episode field
