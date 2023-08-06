@@ -284,11 +284,11 @@ function DisplayDefaultTab() {
         anime_container.style.display = 'none';
         no_anime_label.style.display = 'block';
     }
-    if (anime_result_item_key_list.length == 0) {
+    if (manga_result_item_key_list.length == 0) {
         manga_container.style.display = 'none';
         no_manga_label.style.display = 'block';
     }
-    if (anime_result_item_key_list.length == 0) {
+    if (video_result_item_key_list.length == 0) {
         video_container.style.display = 'none';
         no_video_label.style.display = 'block';
     }
