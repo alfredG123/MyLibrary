@@ -204,11 +204,6 @@ function SearchItemsByIndex(search_type, data_type, item_list, item_index) {
                 break;
         }
 
-        // End the loop, the item has no attributes
-        if (item_value == null) {
-            break;
-        }
-
         // If the item has the text that match the search texts
         if (CheckIfItemContainsTag(item_value, item_index)) {
             item_key_list.push(key);
