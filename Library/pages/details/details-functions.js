@@ -320,5 +320,5 @@ function SetupPanel(data, panel_control) {
 function CopyLinkToClipboard(link_text) {
     navigator.clipboard.writeText(link_text);
 
-    alert('The link is copied to the clipboard!');
+    window.top.postMessage({ 'function': 'RaiseMessage', 'parameters': 'The link is copied to the clipboard!' }, '*');
 }

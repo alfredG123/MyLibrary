@@ -46,6 +46,11 @@ window.onmessage = function (e) {
 
         ChangePageToSearchByIndex(search_type, item_index);
     }
+
+    // If the iframe request for alert message, do it
+    else if (e.data.function == 'RaiseMessage') {
+        alert(e.data.parameters);
+    }
 };
 
 // Change page to the detail page to show information about the specified item
