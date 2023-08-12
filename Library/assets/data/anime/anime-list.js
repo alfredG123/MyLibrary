@@ -1,4 +1,5 @@
 const ANIME_LIST = [
+    {},
     {
         'title': 'Title',
         'alternateTitles': ['otherTitle1', 'anotherTitle'],

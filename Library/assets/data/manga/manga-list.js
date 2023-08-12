@@ -1,4 +1,5 @@
 const MANGA_LIST = [
+    {},
     {
         'title': 'Title',
         'alternateTitles': ['alternateTitle1', 'alternateTitle2'],
