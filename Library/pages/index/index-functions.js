@@ -1,4 +1,5 @@
 var index_anime_tab_link;
+var index_backlog_tab_link;
 var index_home_tab_link;
 var index_main_content_iframe;
 var index_manga_tab_link;
@@ -9,6 +10,7 @@ var index_video_tab_link;
 
 $(document).ready(function () {
     index_anime_tab_link = document.getElementById('index_anime_tab_link');
+    index_backlog_tab_link = document.getElementById('index_backlog_tab_link');
     index_home_tab_link = document.getElementById('index_home_tab_link');
     index_main_content_iframe = document.getElementById('index_main_content_iframe');
     index_manga_tab_link = document.getElementById('index_manga_tab_link');
@@ -157,6 +159,7 @@ function ChangeActiveLink(active_link) {
 
     // Deactivate all links by default
     index_anime_tab_link.classList.remove(ACTIVE_CLASS);
+    index_backlog_tab_link.classList.remove(ACTIVE_CLASS);
     index_home_tab_link.classList.remove(ACTIVE_CLASS);
     index_manga_tab_link.classList.remove(ACTIVE_CLASS);
     index_tags_tab_link.classList.remove(ACTIVE_CLASS);
