@@ -104,6 +104,14 @@ function ChangeToAnime() {
     ChangePage(page_href, index_anime_tab_link);
 }
 
+// Change the page in the frame to backlog
+function ChangeToBacklog() {
+    let page_href = 'pages/backlog/backlog.html';
+
+    // Update the display
+    ChangePage(page_href, index_backlog_tab_link);
+}
+
 // Change the page in the frame to home
 function ChangeToHome() {
     let page_href = 'pages/home/home.html';

@@ -49,8 +49,8 @@ function LoadPageData(page_number) {
         let video_item = VIDEO_LIST[i];
         let video_card = video_card_template.content.cloneNode(true).children[0];
 
-        SetupvideoImage(video_card, video_item);
-        SetupvideoTitle(video_card, video_item);
+        SetupVideoImage(video_card, video_item);
+        SetupVideoTitle(video_card, video_item);
 
         video_card.setAttribute('onclick', 'ViewDetails(' + i + ')');
 
@@ -59,7 +59,7 @@ function LoadPageData(page_number) {
 }
 
 // Add an image to the card
-function SetupvideoImage(video_card, video_item) {
+function SetupVideoImage(video_card, video_item) {
 
     // If the image is not specified, return
     if (video_item.image == null)
@@ -70,7 +70,7 @@ function SetupvideoImage(video_card, video_item) {
 }
 
 // Set up the title of the card
-function SetupvideoTitle(video_card, video_item) {
+function SetupVideoTitle(video_card, video_item) {
 
     // If the title is not specified, return
     if (video_item.title == null)

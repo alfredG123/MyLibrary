@@ -63,6 +63,9 @@ function LoadDetails() {
     else if (data_type == VIDEO_DATA_TYPE) {
         detail_item = VIDEO_LIST[index];
     }
+    else if (data_type == BACKLOG_DATA_TYPE) {
+        detail_item = BACKLOG_LIST[index];
+    }
 
     // If the item is not found, return
     if (detail_item == null)

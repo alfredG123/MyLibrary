@@ -49,8 +49,8 @@ function LoadPageData(page_number) {
         let anime_item = ANIME_LIST[i];
         let anime_card = anime_card_template.content.cloneNode(true).children[0];
 
-        SetupanimeImage(anime_card, anime_item);
-        SetupanimeTitle(anime_card, anime_item);
+        SetupAnimeImage(anime_card, anime_item);
+        SetupAnimeTitle(anime_card, anime_item);
 
         anime_card.setAttribute('onclick', 'ViewDetails(' + i + ')');
 
@@ -59,7 +59,7 @@ function LoadPageData(page_number) {
 }
 
 // Add an image to the card
-function SetupanimeImage(anime_card, anime_item) {
+function SetupAnimeImage(anime_card, anime_item) {
 
     // If the image is not specified, return
     if (anime_item.image == null)
@@ -70,7 +70,7 @@ function SetupanimeImage(anime_card, anime_item) {
 }
 
 // Set up the title of the card
-function SetupanimeTitle(anime_card, anime_item) {
+function SetupAnimeTitle(anime_card, anime_item) {
 
     // If the title is not specified, return
     if (anime_item.title == null)
