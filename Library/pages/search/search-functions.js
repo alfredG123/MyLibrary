@@ -143,10 +143,10 @@ function SearchItemsByText(item_list, item_text) {
 
     // If the items has the similar title, store it
     for (var [key, value] of item_list.entries()) {
-        if (CheckIfTitleContainsText(value.title, item_text)) {
+        if ((value.title != null) && CheckIfTitleContainsText(value.title, item_text)) {
             item_key_list.push(key);
         }
-        else if (CheckIfTitleContainsText(value.alternateTitles, item_text)) {
+        else if ((value.alternateTitles != null) && CheckIfTitleContainsText(value.alternateTitles, item_text)) {
             item_key_list.push(key);
         }
     }
