@@ -4,6 +4,7 @@ var index_home_tab_link;
 var index_main_content_iframe;
 var index_manga_tab_link;
 var index_nav_div;
+var index_search_button;
 var index_search_input;
 var index_tags_tab_link;
 var index_video_tab_link;
@@ -16,8 +17,23 @@ $(document).ready(function () {
     index_manga_tab_link = document.getElementById('index_manga_tab_link');
     index_nav_div = document.getElementById('index_nav_div');
     index_search_input = document.getElementById('index_search_input');
+    index_search_button = document.getElementById('index_search_button');
     index_tags_tab_link = document.getElementById('index_tags_tab_link');
     index_video_tab_link = document.getElementById('index_video_tab_link');
+
+    index_search_input.addEventListener('keypress', function (event) {
+
+        // Verify the key is ENTER
+        if (event.key === "Enter") {
+
+            // Cancel the default action
+            event.preventDefault();
+
+            // Trigger the search
+            index_search_button.click();
+        }
+
+    });
 });
 
 // Listen to the iframe
